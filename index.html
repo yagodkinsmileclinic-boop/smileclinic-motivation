@@ -114,6 +114,45 @@ table.data td.num{text-align:right;font-variant-numeric:tabular-nums;}
 #pwOverlay input{width:100%;font-family:var(--sc-font);font-size:16px;padding:10px 12px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);margin:14px 0;}
 #pwOverlay button{font-family:var(--sc-font);width:100%;border:none;background:var(--sc-ink);color:var(--sc-white);padding:12px;border-radius:var(--sc-radius-pill);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
 #pwMsg{font-size:13px;color:var(--neg);min-height:18px;}
+
+/* ---------- мобильная версия ---------- */
+@media (max-width:700px){
+  html{font-size:15px;}
+  .wrap{padding:0 14px;}
+  header.top{position:static;padding:16px 0 12px;}
+  header.top h1{font-size:20px;line-height:26px;}
+  header.top .sub{display:none;}
+  nav.blocks{flex-wrap:nowrap;overflow-x:auto;gap:6px;margin-top:12px;padding-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  nav.blocks::-webkit-scrollbar{display:none;}
+  nav.blocks button{flex:0 0 auto;font-size:11px;padding:7px 12px;letter-spacing:.5px;white-space:nowrap;}
+  nav.steps{overflow-x:auto;gap:0;margin-top:14px;scrollbar-width:none;}
+  nav.steps::-webkit-scrollbar{display:none;}
+  nav.steps button{flex:0 0 auto;font-size:11px;padding:10px 10px 12px;letter-spacing:.5px;white-space:nowrap;}
+  main{padding:18px 0 60px;}
+  h2.section-title{font-size:19px;}
+  p.section-goal{font-size:13px;margin-bottom:16px;}
+  h3.block-h{font-size:12px;margin:20px 0 10px;}
+  .card{padding:16px;}
+  .card h4{font-size:15px;}
+  .callout{padding:16px;}
+  .callout p{font-size:14px;}
+  .calc-box{padding:14px;}
+  .calc-row{grid-template-columns:1fr !important;gap:6px;margin-bottom:12px;}
+  .calc-row .val{text-align:left;}
+  .calc-row input[type=number],.calc-row select{width:100% !important;max-width:100% !important;}
+  .tiles{grid-template-columns:1fr 1fr;gap:8px;}
+  .tile{padding:12px;}
+  .tile .v{font-size:16px;}
+  .tile .lbl{font-size:10px;}
+  table.data{display:block;overflow-x:auto;white-space:nowrap;font-size:12px;-webkit-overflow-scrolling:touch;}
+  table.data th,table.data td{padding:7px 8px;}
+  table.data td[style*="max-width"]{max-width:220px !important;white-space:normal;}
+  .grade-input,.weight-input,.lg-grade{width:44px !important;}
+  .save-bar{flex-wrap:wrap;}
+  #pwOverlay form{width:92%;padding:20px;}
+  textarea.lg-note{min-height:120px;}
+  div[style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr 1fr !important;}
+}
 </style>
 </head>
 <body>
