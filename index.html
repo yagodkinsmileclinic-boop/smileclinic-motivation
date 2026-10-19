@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мотивация топ-менеджмента — материалы к встрече</title>
+<style>
+:root{
+  --sc-white:      #FFFFFF;
+  --sc-ink:        #1A1919;
+  --sc-bronze:     #83754E;
+  --sc-bronze-hov: #6F6342;
+  --sc-gold:       #B79E5F;
+  --sc-gray-text:  #747474;
+  --sc-bg-soft:    #FAFAFA;
+  --sc-bg-mute:    #EEEEEE;
+  --sc-line:       #E8E8E8;
+  --sc-dark2:      #2F2F2F;
+  --sc-black:      #000000;
+  --sc-font:       "GothamPro","Gotham Pro",-apple-system,"Segoe UI",Arial,sans-serif;
+  --sc-radius-sm:  4px;
+  --sc-radius-md:  16px;
+  --sc-radius-pill:50px;
+  --sc-ease:       all .3s;
+  --sc-container:  1180px;
+  --pos: #4a6b3f;
+  --neg: #a34b3f;
+}
+*{box-sizing:border-box;}
+html{font-size:18px;}
+body{margin:0;font-family:var(--sc-font);font-weight:400;color:var(--sc-ink);background:var(--sc-white);line-height:140%;}
+.wrap{max-width:var(--sc-container);margin:0 auto;padding:0 24px;}
+
+header.top{border-bottom:1px solid var(--sc-line);padding:28px 0 22px;position:sticky;top:0;background:var(--sc-white);z-index:50;}
+header.top .brand{font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--sc-bronze);}
+header.top h1{margin:6px 0 4px;font-size:28px;font-weight:700;line-height:36px;letter-spacing:1px;text-transform:uppercase;}
+header.top .sub{color:var(--sc-gray-text);font-size:14px;}
+
+nav.blocks{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+nav.blocks button{font-family:var(--sc-font);border:1px solid var(--sc-ink);background:transparent;color:var(--sc-ink);padding:10px 20px;border-radius:var(--sc-radius-pill);font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:var(--sc-ease);}
+nav.blocks button.active{background:var(--sc-ink);color:var(--sc-white);}
+nav.blocks button:not(.active):hover{background:var(--sc-bg-mute);}
+
+nav.steps{display:flex;gap:4px;margin:26px 0 0;border-bottom:1px solid var(--sc-line);}
+nav.steps button{font-family:var(--sc-font);border:none;background:transparent;color:var(--sc-gray-text);padding:14px 18px 16px;cursor:pointer;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid transparent;transition:var(--sc-ease);}
+nav.steps button.active{color:var(--sc-ink);border-bottom:2px solid var(--sc-bronze);}
+nav.steps button:hover{color:var(--sc-ink);}
+
+main{padding:36px 0 100px;}
+.role-panel{display:none;}
+.role-panel.active{display:block;}
+.step-panel{display:none;}
+.step-panel.active{display:block;}
+
+h2.section-title{font-size:24px;font-weight:700;line-height:130%;letter-spacing:.6px;margin:0 0 6px;}
+p.section-goal{color:var(--sc-gray-text);font-size:14px;margin:0 0 28px;}
+h3.block-h{font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--sc-bronze);margin:28px 0 14px;}
+h3.block-h:first-child{margin-top:0;}
+
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px;}
+@media (max-width:820px){.card-grid{grid-template-columns:1fr;}}
+.card{border:1px solid var(--sc-line);border-radius:var(--sc-radius-md);padding:22px 24px;background:var(--sc-white);}
+.card .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--sc-line);border-radius:50%;font-size:13px;font-weight:700;margin-bottom:12px;color:var(--sc-bronze);}
+.card h4{font-size:17px;font-weight:700;margin:0 0 8px;line-height:130%;}
+.card p{font-size:14px;line-height:150%;margin:0;color:var(--sc-dark2);}
+.card blockquote{margin:12px 0 0;padding:10px 14px;background:var(--sc-bg-soft);border-left:2px solid var(--sc-bronze);font-size:13px;color:var(--sc-gray-text);font-style:normal;border-radius:0 var(--sc-radius-sm) var(--sc-radius-sm) 0;}
+
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:var(--sc-radius-pill);margin-bottom:10px;}
+.tag.fact{background:var(--sc-bg-mute);color:var(--sc-ink);}
+.tag.analysis{background:var(--sc-bronze);color:var(--sc-white);}
+.tag.assume{background:#F4EFE4;color:var(--sc-bronze-hov);}
+
+.callout{border:1px solid var(--sc-ink);border-radius:var(--sc-radius-md);padding:24px 26px;margin:8px 0 32px;background:var(--sc-ink);color:var(--sc-white);}
+.callout h4{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sc-gold);margin:0 0 10px;}
+.callout p{font-size:15px;line-height:150%;margin:0 0 8px;color:var(--sc-white);}
+.callout p:last-child{margin-bottom:0;}
+.callout .assumption{color:#c9c2ae;font-size:12px;}
+
+table.data{width:100%;border-collapse:collapse;margin:0 0 28px;font-size:13px;}
+table.data th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--sc-gray-text);border-bottom:1px solid var(--sc-ink);padding:8px 10px;}
+table.data td{padding:9px 10px;border-bottom:1px solid var(--sc-line);}
+table.data tr:last-child td{font-weight:700;border-bottom:none;border-top:1px solid var(--sc-ink);}
+table.data td.num{text-align:right;font-variant-numeric:tabular-nums;}
+.pos{color:var(--pos);}
+.neg{color:var(--neg);}
+
+.calc-box{border:1px solid var(--sc-line);border-radius:var(--sc-radius-md);padding:26px 28px;margin:8px 0 28px;background:var(--sc-bg-soft);}
+.calc-row{display:grid;grid-template-columns:220px 1fr 90px;align-items:center;gap:14px;margin-bottom:16px;}
+@media (max-width:700px){.calc-row{grid-template-columns:1fr;}}
+.calc-row label{font-size:13px;font-weight:700;color:var(--sc-ink);}
+.calc-row input[type=range]{width:100%;accent-color:var(--sc-bronze);}
+.calc-row .val{font-size:14px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;}
+.calc-note{font-size:12px;color:var(--sc-gray-text);margin:-8px 0 18px;}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 24px;}
+@media (max-width:820px){.tiles{grid-template-columns:1fr;}}
+.tile{border:1px solid var(--sc-line);border-radius:var(--sc-radius-md);padding:18px 20px;background:var(--sc-white);}
+.tile .lbl{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--sc-gray-text);margin-bottom:6px;}
+.tile .v{font-size:22px;font-weight:700;}
+
+.open-q{border:1px dashed var(--sc-bronze);border-radius:var(--sc-radius-md);padding:20px 22px;margin:8px 0 8px;background:var(--sc-white);}
+.open-q h4{margin:0 0 10px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sc-bronze);}
+.open-q ol{margin:0;padding-left:20px;}
+.open-q li{font-size:14px;line-height:150%;margin-bottom:8px;color:var(--sc-dark2);}
+
+.save-bar{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:13px;}
+.save-status{color:var(--sc-gray-text);}
+.save-status.ok{color:var(--pos);} .save-status.err{color:var(--neg);font-weight:700;} .save-status.dirty{color:var(--sc-bronze);} .save-status.saving{color:var(--sc-gray-text);}
+.save-bar button{font-family:var(--sc-font);border:1px solid var(--sc-ink);background:transparent;padding:6px 14px;border-radius:var(--sc-radius-pill);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
+#conflictBox{display:none;margin-top:10px;padding:12px 16px;border:1px solid var(--neg);border-radius:var(--sc-radius-sm);font-size:13px;background:#fff6f4;}
+#conflictBox button{margin-right:8px;margin-top:8px;}
+#pwOverlay{position:fixed;inset:0;background:var(--sc-white);z-index:100;display:none;align-items:center;justify-content:center;}
+#pwOverlay form{width:360px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-md);padding:28px;}
+#pwOverlay input{width:100%;font-family:var(--sc-font);font-size:16px;padding:10px 12px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);margin:14px 0;}
+#pwOverlay button{font-family:var(--sc-font);width:100%;border:none;background:var(--sc-ink);color:var(--sc-white);padding:12px;border-radius:var(--sc-radius-pill);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
+#pwMsg{font-size:13px;color:var(--neg);min-height:18px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand">SmileClinic · Материалы к встрече</div>
+  <h1>Мотивация топ-менеджмента</h1>
+  <div class="sub">Финансовый директор · Отдел планирования лечения · Маркетинг · Операционный отдел (УПР) · Операционный директор</div>
+  <nav class="blocks" id="roleNav"></nav>
+  <div class="save-bar"><span id="saveStatus" class="save-status"></span><button id="saveBtn">Сохранить</button></div>
+  <div id="conflictBox">Данные в таблице изменились после того, как ты открыл страницу (другое устройство или правка в таблице). Выбери: <br>
+    <button id="conflictReload" class="save-bar-btn">Загрузить с сервера (мои несохранённые изменения пропадут)</button>
+    <button id="conflictForce">Сохранить мою версию поверх</button></div>
+</header>
+<div id="pwOverlay"><form id="pwForm"><div class="brand" style="font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--sc-bronze);">SmileClinic · Мотивация топ-менеджмента</div><input type="password" id="pwInput" placeholder="Пароль" autocomplete="current-password"><button type="submit">Войти</button><div id="pwMsg"></div></form></div>
+
+<main>
+  <div class="wrap" id="roleContent"></div>
+</main>
+</div>
+
+<script>
+let CONTENT = {roles:[], factors:[], mishaCards:[], mishaScenarios:[]}; // тексты приходят из скрипта вместе с данными
+let ROLES = [];
+
+let FACTORS = [];
+const GRADE_MAX = 3; // шкала оценки по каждому фактору: 1-3
+let POOL_PCT = null;
+
+let OD_ROLE = { id:'od', short:'ОД', title:'Операционный директор', excludeFromPool:true, grading:{} };
+function allGraded(){ return [...ROLES, OD_ROLE]; }
+
+const GRADE_BANDS = [
+  {min:2.5, label:'A — ключевой руководитель бизнеса'},
+  {min:2.0, label:'B — руководитель ключевой функции'},
+  {min:1.5, label:'C — руководитель функции'},
+  {min:0,   label:'D — функциональный руководитель / Head'},
+];
+function gradeLabel(score){
+  return GRADE_BANDS.find(b=>score>=b.min).label;
+}
+
+let MONTHS = [];
+
+let PROFIT_DATA = {operating:[], net:[], distributed:[]};
+const PROFIT_LABELS = {
+  operating: 'Операционная прибыль',
+  net: 'Чистая прибыль (до инвестиций и амортизации)',
+  distributed: 'Чистая прибыль к распределению',
+};
+let PROFIT_METRIC = 'net';
+let PERIOD_START = 0; // с какого месяца считаем (0 = январь, 2 = март) — чтобы исключить месяцы простоя
+function pIdx(){ const a=[]; for(let i=PERIOD_START;i<MONTHS.length;i++) a.push(i); return a; }
+function pSum(arr){ return pIdx().reduce((s,i)=>s+arr[i],0); }
+function pLen(){ return MONTHS.length-PERIOD_START; }
+function pLabel(){ const sh={'Январь':'янв','Февраль':'фев','Март':'мар','Апрель':'апр','Май':'май','Июнь':'июн','Июль':'июл','Август':'авг','Сентябрь':'сен'}; return sh[MONTHS[PERIOD_START]]+'–'+sh[MONTHS[MONTHS.length-1]]+' ('+pLen()+' мес)'; } // как в транскрибации встречи — "% от фактической чистой прибыли компании"
+
+let WAS_PAY = {};
+
+function fmt(n){ return Math.round(n).toLocaleString('ru-RU'); }
+function pctFmt(n){ return (n*100).toFixed(2).replace(/\.00$/,'').replace(/(\.\d)0$/,'$1') + '%'; }
+
+// текущие настройки калькулятора роли (сохраняются между переключениями вкладок)
+function getRoleParams(role){
+  const c = role.current || {};
+  return {
+    oklad: c.oklad !== undefined ? c.oklad : role.propose.oklad,
+    pct:   c.pct   !== undefined ? c.pct   : GRADE_RESULT[role.id].suggestedPct,
+    kpi:   c.kpi   !== undefined ? c.kpi   : 1,
+  };
+}
+// выплата по новой формуле, помесячно, для заданной роли и базы прибыли (не зависит от того, какая вкладка сейчас открыта)
+function newPaySeries(role, metric){
+  const {oklad, pct, kpi} = getRoleParams(role);
+  const profitArr = PROFIT_DATA[metric];
+  const floor = kpi>=1 ? oklad*1.5 : 0;
+  return MONTHS.map((m,i)=>{
+    let neu = oklad + profitArr[i]*(pct/100)*kpi;
+    if(floor && neu<floor) neu = floor;
+    return neu;
+  });
+}
+
+const roleNav = document.getElementById('roleNav');
+const roleContent = document.getElementById('roleContent');
+
+function buildNav(){
+  roleNav.innerHTML = '';
+  const gradeBtn = document.createElement('button');
+gradeBtn.textContent = '0. Грейдинг должностей';
+gradeBtn.id = 'nav-grading';
+gradeBtn.onclick = showGrading;
+roleNav.appendChild(gradeBtn);
+
+  const summaryBtn = document.createElement('button');
+summaryBtn.textContent = 'Итог: разница в прибыли';
+summaryBtn.id = 'nav-summary';
+summaryBtn.onclick = ()=>{ PERIOD_START = 0; showSummary(); };
+roleNav.appendChild(summaryBtn);
+
+  const summaryMarBtn = document.createElement('button');
+summaryMarBtn.textContent = 'Итог с марта';
+summaryMarBtn.id = 'nav-summary-mar';
+summaryMarBtn.onclick = ()=>{ PERIOD_START = 2; showSummary(); document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-summary-mar')); };
+roleNav.appendChild(summaryMarBtn);
+
+  const dolgoletieBtn = document.createElement('button');
+dolgoletieBtn.textContent = 'Долголетие: поэтапная модель';
+dolgoletieBtn.id = 'nav-dolgoletie';
+dolgoletieBtn.onclick = showLongevity;
+roleNav.appendChild(dolgoletieBtn);
+
+  const reverseBtn = document.createElement('button');
+reverseBtn.textContent = 'Обратная модель';
+reverseBtn.id = 'nav-reverse';
+reverseBtn.onclick = showReverse;
+roleNav.appendChild(reverseBtn);
+
+  const mishaBtn = document.createElement('button');
+mishaBtn.textContent = 'Миша';
+mishaBtn.id = 'nav-misha';
+mishaBtn.onclick = showMisha;
+roleNav.appendChild(mishaBtn);
+
+  const offerBtn = document.createElement('button');
+offerBtn.textContent = 'Оффер Мише';
+offerBtn.id = 'nav-offer';
+offerBtn.onclick = showOffer;
+roleNav.appendChild(offerBtn);
+
+ROLES.forEach((r,i)=>{
+    const b = document.createElement('button');
+  b.textContent = r.short + ' — ' + r.title;
+  b.onclick = ()=>showRole(r.id);
+  b.id = 'nav-'+r.id;
+  roleNav.appendChild(b);
+});
+}
+
+function computeGrades(){
+  const totals = {};
+  const wsum = FACTORS.reduce((a,f)=>a+f.weight,0);
+  allGraded().forEach(r=>{
+    let t = 0;
+    FACTORS.forEach(f=>{ t += (r.grading[f.key]||0) * f.weight; });
+    totals[r.id] = t / wsum; // взвешенный средний балл 1-5
+  });
+  const sumPool = ROLES.reduce((a,r)=>a+totals[r.id],0);
+  const result = {};
+  allGraded().forEach(r=>{
+    if(r.excludeFromPool){
+      result[r.id] = { total: totals[r.id], share:null, suggestedPct:null };
+    } else {
+      const share = totals[r.id] / sumPool;
+      result[r.id] = { total: totals[r.id], share, suggestedPct: POOL_PCT * share };
+    }
+  });
+  return result;
+}
+let GRADE_RESULT = computeGrades();
+
+function showGrading(){
+  document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-grading'));
+  roleContent.innerHTML = renderGrading();
+  wireGrading();
+}
+
+function renderGrading(){
+  const people = allGraded();
+  const head = people.map(r=>`<th style="text-align:center">${r.short}${r.excludeFromPool?' <span style=\"color:var(--sc-gray-text);font-weight:400;\">(вне фонда)</span>':''}</th>`).join('');
+  const rows = FACTORS.map(f=>{
+    const cells = people.map(r=>`<td style="text-align:center"><input type="number" min="1" max="3" step="1" class="grade-input" data-role="${r.id}" data-factor="${f.key}" value="${r.grading[f.key]}" style="width:52px;text-align:center;font-family:var(--sc-font);font-size:14px;padding:4px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);"></td>`).join('');
+    const anchorLine = `<div style="margin-top:6px;font-size:11px;color:var(--sc-gray-text);">1 — ${f.anchors[1]}<br>2 — ${f.anchors[2]}<br>3 — ${f.anchors[3]}</div>`;
+    return `<tr><td style="max-width:320px;"><b>${f.label}</b><br><span style="color:var(--sc-gray-text);font-size:12px;">${f.desc}</span>${anchorLine}</td><td class="num" style="text-align:center;"><input type="number" min="0" max="100" step="5" class="weight-input" data-factor="${f.key}" value="${f.weight}" style="width:56px;text-align:center;font-family:var(--sc-font);font-size:14px;padding:4px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);">%</td>${cells}</tr>`;
+  }).join('');
+  const totalRow = `<tr id="grade-total-row"><td><b>Взвешенный балл (1–3)</b></td><td></td>${people.map(r=>`<td id="total-${r.id}" style="text-align:center;font-weight:700;"></td>`).join('')}</tr>`;
+  const bandRow = `<tr id="grade-band-row"><td><b>Грейд</b></td><td></td>${people.map(r=>`<td id="band-${r.id}" style="text-align:center;font-weight:700;font-size:12px;"></td>`).join('')}</tr>`;
+  const shareRow = `<tr id="grade-share-row"><td><b>Доля в общем фонде премии топов</b></td><td></td>${people.map(r=>`<td id="share-${r.id}" style="text-align:center;font-weight:700;"></td>`).join('')}</tr>`;
+  const pctRow = `<tr id="grade-pct-row"><td><b>Рекомендуемый % от чистой прибыли</b></td><td></td>${people.map(r=>`<td id="pct-${r.id}" style="text-align:center;font-weight:700;color:var(--sc-bronze);"></td>`).join('')}</tr>`;
+
+  return `
+    <h2 class="section-title">Грейдинг должностей</h2>
+    <p class="section-goal">5 факторов, по которым сравниваем роли — веса в сумме дают 100%. Оцениваем каждую роль по шкале 1–3, ориентируясь на подсказки под каждым фактором. Баллы и веса можно менять прямо в таблице — расчёт пересчитывается сразу. Итоговая доля грейда становится рекомендуемым % от чистой прибыли в калькуляторе роли на вкладке «Как предлагаем».</p>
+    <div class="callout">
+      <h4>Что намеренно не считаем фактором</h4>
+      <p>Стаж в компании, лояльность, отработанные часы, текущую зарплату и личное доверие сюда не включаем — иначе оцениваем не должность, а конкретного человека. Это важно для отношения к сотруднику, но не должно само по себе поднимать грейд позиции.</p>
+    </div>
+    <div class="calc-row" style="grid-template-columns:320px 200px;margin-bottom:24px;">
+      <label>Общий фонд — % от чистой прибыли на всех топов</label>
+      <input type="number" id="poolPct" min="1" max="30" step="0.5" value="${POOL_PCT}" style="width:90px;font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);">
+    </div>
+    <table class="data" id="gradeTable">
+      <thead><tr><th>Фактор</th><th style="text-align:center">Вес</th>${head}</tr></thead>
+      <tbody>${rows}${totalRow}${bandRow}${shareRow}${pctRow}</tbody>
+    </table>
+    <div class="callout">
+      <h4>Как читать</h4>
+      <p>ОД добавлен в таблицу только для калибровки шкалы — чтобы видеть, как остальные роли стоят относительно директорской позиции. В фонд премии и в калькуляторы ролей его балл не идёт — премию для ОД по этой модели не считаем.</p>
+      <p>Доля каждой роли в сумме баллов четырёх ролей определяет, какая часть общего фонда премии (по умолчанию 8% чистой прибыли) ей причитается. Меняй баллы и веса, пока распределение не будет выглядеть объяснимым — это рабочий инструмент для встречи, а не готовое решение.</p>
+      <p class="assumption">Стартовые баллы — черновые, поправь под себя. Границы грейдов: A 2,5–3,0 · B 2,0–2,49 · C 1,5–1,99 · D до 1,49.</p>
+    </div>
+    <div class="card" style="border-style:dashed;">
+      <span class="tag assume">Резерв в структуре</span>
+      <h4>Главный врач — место зарезервировано, не занято</h4>
+      <p>В грейдинг эту роль пока не включаем — нет ни человека, ни согласованной зарплаты. Но функционал под главного врача уже когда-то прописывали, и по сути сейчас весь производственный блок (врачи, которые делают продукт) никак не представлен в борде управленцев. Решили сейчас это не оценивать, а просто держать в голове: когда роль понадобится и появится конкретный человек — она встраивается в эту же модель грейдинга и мотивации, а не придумывается заново.</p>
+    </div>`;
+}
+
+function wireGrading(){
+  function recalcGrading(){
+    GRADE_RESULT = computeGrades();
+    allGraded().forEach(r=>{
+      const g = GRADE_RESULT[r.id];
+      document.getElementById('total-'+r.id).textContent = g.total.toFixed(2);
+      document.getElementById('band-'+r.id).textContent = gradeLabel(g.total);
+      const shareEl = document.getElementById('share-'+r.id);
+      const pctEl = document.getElementById('pct-'+r.id);
+      if(r.excludeFromPool){
+        shareEl.textContent = '—';
+        pctEl.textContent = '—';
+      } else {
+        shareEl.textContent = (g.share*100).toFixed(1)+'%';
+        pctEl.textContent = g.suggestedPct.toFixed(2)+'%';
+      }
+    });
+  }
+  document.querySelectorAll('.grade-input').forEach(el=>{
+    el.addEventListener('input', ()=>{
+      const role = ROLES.find(r=>r.id===el.dataset.role);
+      role.grading[el.dataset.factor] = +el.value || 0;
+      recalcGrading();
+    });
+  });
+  document.querySelectorAll('.weight-input').forEach(el=>{
+    el.addEventListener('input', ()=>{
+      const f = FACTORS.find(f=>f.key===el.dataset.factor);
+      f.weight = +el.value || 0;
+      recalcGrading();
+    });
+  });
+  document.getElementById('poolPct').addEventListener('input', function(){
+    POOL_PCT = +this.value || 0;
+    recalcGrading();
+  });
+  recalcGrading();
+}
+
+function showRole(id){
+  document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-'+id));
+  const role = ROLES.find(r=>r.id===id);
+  roleContent.innerHTML = renderRole(role);
+  if(!role.solo){
+    document.querySelectorAll('.step-panel[data-role="'+id+'"]').forEach((p,idx)=>{});
+    initSteps(id);
+    initKpi(role);
+    if(role.propose) initCalc(role);
+  }
+}
+
+function kpiItem(text, tagClass, tagText, onDelete){
+  const li = document.createElement('li');
+  li.style.cssText = 'display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);margin-bottom:8px;background:var(--sc-white);';
+  const span = document.createElement('span');
+  span.style.cssText = 'flex:1;font-size:14px;line-height:150%;color:var(--sc-dark2);';
+  span.textContent = text;
+  const del = document.createElement('button');
+  del.textContent = '✕';
+  del.title = 'Удалить';
+  del.style.cssText = 'border:none;background:transparent;color:var(--sc-gray-text);cursor:pointer;font-size:14px;line-height:1;padding:2px 4px;';
+  del.onmouseenter = ()=>{del.style.color='var(--neg)';};
+  del.onmouseleave = ()=>{del.style.color='var(--sc-gray-text)';};
+  del.onclick = ()=>{ li.remove(); if(onDelete) onDelete(); markDirty(); };
+  li.appendChild(span);
+  li.appendChild(del);
+  return li;
+}
+
+function initKpi(role){
+  const curUl = document.getElementById('kpiCurrent-'+role.id);
+  const leadUl = document.getElementById('kpiLeading-'+role.id);
+  if(!curUl) return;
+  curUl.innerHTML = '';
+  leadUl.innerHTML = '';
+  (role.kpiCurrent||[]).forEach(t=> curUl.appendChild(kpiItem(t, null, null, ()=>{ role.kpiCurrent = role.kpiCurrent.filter(x=>x!==t); })));
+  (role.kpiLeading||[]).forEach(t=> leadUl.appendChild(kpiItem(t, null, null, ()=>{ role.kpiLeading = role.kpiLeading.filter(x=>x!==t); })));
+}
+
+function renderRole(role){
+  if(role.solo){
+    return `
+    <h2 class="section-title">${role.title}</h2>
+    <p class="section-goal">${role.goal}</p>
+    <div class="callout">
+      <h4>Решение по этой роли</h4>
+      <p>Расчёт премии от прибыли для операционного директора в эту модель не включаем — вознаграждение директора формируется отдельно от общей топ-команды и обсуждается только с собственниками, без участия самого директора в проектировании своей формулы.</p>
+      <p class="assumption">Функционал и статусность роли директора должны быть отражены в его условиях, но это отдельный трек, не входящий в общий калькулятор ниже.</p>
+    </div>`;
+  }
+  const steps = `
+  <nav class="steps">
+    <button class="step-btn active" data-step="why">1. Почему пересматриваем</button>
+    <button class="step-btn" data-step="asis">2. Как сейчас</button>
+    <button class="step-btn" data-step="kpi">3. KPI</button>
+    <button class="step-btn" data-step="propose">4. Как предлагаем</button>
+  </nav>`;
+
+  const whyCards = role.why.map((w,i)=>`
+    <div class="card">
+      <span class="num">${i+1}</span>
+      <span class="tag ${w.tag}">${w.tag==='fact'?'Факт со встречи':'Предположение'}</span>
+      <h4>${w.h}</h4>
+      <p>${w.p}</p>
+      ${w.quote ? `<blockquote>${w.quote}</blockquote>` : ''}
+    </div>`).join('');
+
+  let asisHtml;
+  if(role.asis.empty){
+    asisHtml = `<div class="callout"><h4>Формулы нет</h4><p>${role.asis.note}</p></div>`;
+  } else {
+    const rows = role.asis.cols.map((c,i)=>`
+      <tr>
+        <td>${c}</td>
+        <td class="num">${role.asis.fixedBonus ? role.asis.coef[i].toLocaleString('ru-RU')+' ₽' : (role.asis.coef[i]*100).toFixed(1).replace('.0','')+'%'}</td>
+      </tr>`).join('');
+    asisHtml = `
+      <p style="font-size:14px;color:var(--sc-dark2);margin:0 0 16px;">${role.asis.title}. Оклад — <b>${role.asis.oklad.toLocaleString('ru-RU')} ₽</b>.</p>
+      <table class="data">
+        <thead><tr><th>${role.asis.tableTitle}</th><th style="text-align:right">${role.asis.coefLabel}</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <p class="calc-note" style="margin-top:-12px;">${role.asis.note}</p>`;
+  }
+
+  const kpiHtml = `
+    <p style="font-size:14px;color:var(--sc-dark2);margin:0 0 4px;">В положении отдела эти метрики есть уже сейчас — все они ретроспективные (по факту прошедшего периода). Опережающих не было ни у одной роли, это и предлагаю добавить ниже — удали, что не подходит.</p>
+    <h4 style="font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--sc-gray-text);margin:20px 0 10px;">Текущие метрики (из положения об отделе)</h4>
+    <ul id="kpiCurrent-${role.id}" style="list-style:none;padding:0;margin:0 0 20px;"></ul>
+    <h4 style="font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--sc-bronze);margin:20px 0 10px;">Опережающие KPI (предложение — можно удалить лишнее)</h4>
+    <ul id="kpiLeading-${role.id}" style="list-style:none;padding:0;margin:0;"></ul>`;
+
+  const proposeHtml = `
+    <div class="callout">
+      <h4>Единая логика для всех топов</h4>
+      <p>Оклад + % от фактической месячной прибыли компании × коэффициент выполнения KPI (0,6×–1,2×). Гарантированный минимум — при KPI ≥ 100%. Пересмотр доли/оклада — не чаще раза в квартал, KPI остаётся управленческим инструментом, а не ежемесячным калькулятором зарплаты.</p>
+      <p class="assumption">Оклад и % ниже — предварительные, двигай ползунки. % по умолчанию подставлен из грейдинга, оклад — предварительный (${ROLES.map(r=>r.short+' '+fmt(getRoleParams(r).oklad)+' ₽').join(', ')}), его можно менять.</p>
+    </div>
+    <div class="calc-box" id="calc-${role.id}">
+      <div class="calc-row">
+        <label>База для %: какая прибыль</label>
+        <select id="metric-${role.id}" style="font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);">
+          <option value="operating">Операционная прибыль</option>
+          <option value="net">Чистая прибыль (до инвестиций и амортизации)</option>
+          <option value="distributed">Чистая прибыль к распределению</option>
+        </select>
+        <div></div>
+      </div>
+      <div class="calc-row">
+        <label>Оклад, ₽/мес</label>
+        <input type="range" id="oklad-${role.id}" min="50000" max="250000" step="5000" value="${getRoleParams(role).oklad}">
+        <div class="val" id="okladVal-${role.id}"></div>
+      </div>
+      <div class="calc-row">
+        <label>% от прибыли</label>
+        <input type="range" id="pct-${role.id}" min="0.5" max="10" step="0.1" value="${getRoleParams(role).pct.toFixed(1)}">
+        <div class="val" id="pctVal-${role.id}"></div>
+      </div>
+      <p class="calc-note">Подставлено из грейдинга: ${GRADE_RESULT[role.id].suggestedPct.toFixed(2)}% (доля роли в общем фонде — ${(GRADE_RESULT[role.id].share*100).toFixed(1)}%). Поменял баллы на вкладке «Грейдинг должностей» — вернись сюда, чтобы обновить (если % уже трогал руками вручную, автоподстановка его не перезапишет).</p>
+      <div class="calc-row">
+        <label>Коэффициент KPI (общий для всех месяцев)</label>
+        <input type="range" id="kpi-${role.id}" min="0.6" max="1.2" step="0.05" value="${getRoleParams(role).kpi}">
+        <div class="val" id="kpiVal-${role.id}"></div>
+      </div>
+      <div class="tiles">
+        <div class="tile"><div class="lbl">Было, среднее/мес</div><div class="v" id="wasAvg-${role.id}">—</div></div>
+        <div class="tile"><div class="lbl">Стало, среднее/мес</div><div class="v" id="newAvg-${role.id}">—</div></div>
+        <div class="tile"><div class="lbl">Дельта за период</div><div class="v" id="deltaTotal-${role.id}">—</div></div>
+      </div>
+      <table class="data">
+        <thead><tr><th>Месяц</th><th style="text-align:right">Прибыль (факт)</th><th style="text-align:right">Было</th><th style="text-align:right">Стало</th><th style="text-align:right">Дельта</th></tr></thead>
+        <tbody id="rows-${role.id}"></tbody>
+      </table>
+    </div>
+    <div class="open-q">
+      <h4>Что пока не решено — вынести на встречу</h4>
+      <ol>
+        <li>Итоговый размер оклада и % от прибыли по каждой роли — зафиксировать после обсуждения на встрече, значения выше предварительные.</li>
+        <li>Какую именно прибыль брать за базу расчёта (операционную/чистую/к распределению) — по умолчанию чистую, как звучало на встрече, но проверь на цифрах выше.</li>
+        <li>Гарантированный минимум в рублях для этой роли — согласовать с фактическим бюджетом ФОТ. Потолок пока убрали (смотрим, нужен ли).</li>
+      </ol>
+    </div>`;
+
+  return `
+    <h2 class="section-title">${role.title}</h2>
+    <p class="section-goal">${role.goal}</p>
+    ${steps}
+    <section class="step-panel active" data-step="why" data-role="${role.id}">
+      <h3 class="block-h">Почему пересматриваем</h3>
+      <div class="card-grid">${whyCards}</div>
+    </section>
+    <section class="step-panel" data-step="asis" data-role="${role.id}">
+      <h3 class="block-h">Как сейчас</h3>
+      ${asisHtml}
+    </section>
+    <section class="step-panel" data-step="kpi" data-role="${role.id}">
+      <h3 class="block-h">KPI</h3>
+      ${kpiHtml}
+    </section>
+    <section class="step-panel" data-step="propose" data-role="${role.id}">
+      <h3 class="block-h">Как предлагаем</h3>
+      ${proposeHtml}
+    </section>`;
+}
+
+function initSteps(roleId){
+  const btns = document.querySelectorAll('.step-btn');
+  btns.forEach(b=>{
+    b.onclick = ()=>{
+      btns.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.querySelectorAll('.step-panel[data-role="'+roleId+'"]').forEach(p=>{
+        p.classList.toggle('active', p.dataset.step === b.dataset.step);
+      });
+    };
+  });
+}
+
+function initCalc(role){
+  const okladEl = document.getElementById('oklad-'+role.id);
+  const pctEl = document.getElementById('pct-'+role.id);
+  const kpiEl = document.getElementById('kpi-'+role.id);
+  const metricEl = document.getElementById('metric-'+role.id);
+  metricEl.value = PROFIT_METRIC;
+
+  function recalc(){
+    const oklad = +okladEl.value;
+    const pct = +pctEl.value/100;
+    const kpi = +kpiEl.value;
+    PROFIT_METRIC = metricEl.value;
+    const profitArr = PROFIT_DATA[PROFIT_METRIC];
+    const wasArr = WAS_PAY[role.id];
+    role.current = {oklad, pct:+pctEl.value, kpi}; // запоминаем, чтобы не сбрасывалось при переключении вкладок и попадало в сводку
+
+    document.getElementById('okladVal-'+role.id).textContent = oklad.toLocaleString('ru-RU')+' ₽';
+    document.getElementById('pctVal-'+role.id).textContent = pctEl.value+'%';
+    document.getElementById('kpiVal-'+role.id).textContent = '×'+kpiEl.value;
+
+    const floor = kpi>=1 ? oklad*1.5 : 0;
+    let rowsHtml = '';
+    let sumWas6=0, sumNew6=0, sumWas7=0, sumNew7=0, sumProfit6=0, sumProfit7=0;
+    MONTHS.forEach((m,i)=>{
+      const profit = profitArr[i];
+      const was = wasArr[i];
+      let neu = oklad + profit*pct*kpi;
+      if(floor && neu<floor) neu = floor;
+      const delta = neu - was;
+      const deltaClass = delta>=0 ? 'pos' : 'neg';
+      rowsHtml += `<tr><td>${m}</td><td class="num">${fmt(profit)} ₽</td><td class="num">${fmt(was)} ₽</td><td class="num">${fmt(neu)} ₽</td><td class="num ${deltaClass}">${delta>=0?'+':''}${fmt(delta)} ₽</td></tr>`;
+      sumWas7+=was; sumNew7+=neu; sumProfit7+=profit;
+      if(i<6){ sumWas6+=was; sumNew6+=neu; sumProfit6+=profit; }
+    });
+    const d6 = sumNew6-sumWas6, d7 = sumNew7-sumWas7;
+    rowsHtml += `<tr><td><b>Итого янв–июн (6 мес)</b></td><td class="num">${fmt(sumProfit6)} ₽</td><td class="num">${fmt(sumWas6)} ₽</td><td class="num">${fmt(sumNew6)} ₽</td><td class="num ${d6>=0?'pos':'neg'}">${d6>=0?'+':''}${fmt(d6)} ₽</td></tr>`;
+    rowsHtml += `<tr><td><b>Итого янв–сен (9 мес)</b></td><td class="num">${fmt(sumProfit7)} ₽</td><td class="num">${fmt(sumWas7)} ₽</td><td class="num">${fmt(sumNew7)} ₽</td><td class="num ${d7>=0?'pos':'neg'}">${d7>=0?'+':''}${fmt(d7)} ₽</td></tr>`;
+    document.getElementById('rows-'+role.id).innerHTML = rowsHtml;
+
+    document.getElementById('wasAvg-'+role.id).textContent = fmt(sumWas7/MONTHS.length)+' ₽';
+    document.getElementById('newAvg-'+role.id).textContent = fmt(sumNew7/MONTHS.length)+' ₽';
+    const deltaTotalEl = document.getElementById('deltaTotal-'+role.id);
+    deltaTotalEl.textContent = (d7>=0?'+':'')+fmt(d7)+' ₽';
+    deltaTotalEl.className = 'v ' + (d7>=0?'pos':'neg');
+  }
+  [okladEl,pctEl,kpiEl,metricEl].forEach(el=>el.addEventListener('input', recalc));
+  recalc();
+}
+
+const FIXED_LABEL = {fd:'ФД', rop:'РОП', mkt:'МКТ', upr:'УПР'};
+
+function showSummary(){
+  document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-summary'));
+  roleContent.innerHTML = renderSummary();
+  wireSummary();
+}
+
+function readSumInputs(){
+  ROLES.forEach(r=>{
+    r.current = {
+      oklad: +document.getElementById('sumOklad-'+r.id).value || 0,
+      pct:   +document.getElementById('sumPct-'+r.id).value || 0,
+      kpi:   +document.getElementById('sumKpi-'+r.id).value || 1,
+    };
+  });
+  PROFIT_METRIC = document.getElementById('sumMetric').value;
+}
+
+function wireSummary(){
+  const els = [];
+  ROLES.forEach(r=>{ ['sumOklad-','sumPct-','sumKpi-'].forEach(p=> els.push(document.getElementById(p+r.id))); });
+  els.push(document.getElementById('sumMetric'));
+  document.getElementById('sumStart').addEventListener('change', ()=>{ PERIOD_START = +document.getElementById('sumStart').value; renderSumOut(); });
+  els.forEach(el=> el.addEventListener('input', ()=>{ readSumInputs(); renderSumOut(); }));
+  document.getElementById('sumResetPct').onclick = ()=>{
+    ROLES.forEach(r=>{ document.getElementById('sumPct-'+r.id).value = GRADE_RESULT[r.id].suggestedPct.toFixed(2); });
+    readSumInputs(); renderSumOut();
+  };
+  readSumInputs();
+  renderSumOut();
+}
+
+function renderSummary(){
+  const inp = 'style="width:110px;font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);text-align:right;"';
+  const rows = ROLES.map(r=>{
+    const p = getRoleParams(r);
+    return `<tr>
+      <td><b>${r.short}</b> — ${r.title}</td>
+      <td style="text-align:right"><input type="number" id="sumOklad-${r.id}" min="0" step="5000" value="${p.oklad}" ${inp}> ₽</td>
+      <td style="text-align:right"><input type="number" id="sumPct-${r.id}" min="0" max="15" step="0.01" value="${(+p.pct).toFixed(2)}" ${inp}> %</td>
+      <td style="text-align:right"><input type="number" id="sumKpi-${r.id}" min="0.6" max="1.2" step="0.05" value="${p.kpi}" ${inp}></td>
+      <td style="text-align:right;color:var(--sc-gray-text);">${GRADE_RESULT[r.id].suggestedPct.toFixed(2)}%</td>
+    </tr>`;
+  }).join('');
+  return `
+    <h2 class="section-title">Итог: как меняется заработок и прибыль</h2>
+    <p class="section-goal">Меняй оклад, % от прибыли и KPI-коэффициент по каждой роли — всё ниже пересчитывается сразу: сколько получает каждый, во что обходится топ-команда и как меняется прибыль компании. Было — фактические выплаты по месяцам (у Лены без доплаты за ЗТЛ с июня). Окончательные оклады — после обсуждения с владельцами.</p>
+    <div class="calc-box">
+      <div class="calc-row" style="grid-template-columns:260px 1fr;">
+        <label>Период расчёта</label>
+        <select id="sumStart" style="font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);max-width:380px;">
+          ${MONTHS.slice(0,MONTHS.length-2).map((m,i)=>`<option value="${i}"${PERIOD_START===i?' selected':''}>с ${m.toLowerCase()} по сентябрь (${MONTHS.length-i} мес)</option>`).join('')}
+        </select>
+      </div>
+      <div class="calc-row" style="grid-template-columns:260px 1fr;">
+        <label>База для % — какая прибыль</label>
+        <select id="sumMetric" style="font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);max-width:380px;">
+          <option value="net"${PROFIT_METRIC==='net'?' selected':''}>Чистая прибыль (до инвестиций и амортизации)</option>
+          <option value="operating"${PROFIT_METRIC==='operating'?' selected':''}>Операционная прибыль</option>
+          <option value="distributed"${PROFIT_METRIC==='distributed'?' selected':''}>Чистая прибыль к распределению</option>
+        </select>
+      </div>
+      <table class="data" style="margin-bottom:10px;">
+        <thead><tr><th>Роль</th><th style="text-align:right">Оклад</th><th style="text-align:right">% от прибыли</th><th style="text-align:right">KPI ×</th><th style="text-align:right">% по грейдингу</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <button id="sumResetPct" style="font-family:var(--sc-font);border:1px solid var(--sc-ink);background:transparent;padding:8px 16px;border-radius:var(--sc-radius-pill);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Взять % из грейдинга</button>
+      <p class="calc-note" style="margin:12px 0 0;">Выплата = оклад + прибыль месяца × % × KPI. Гарантированный минимум 1,5 оклада (при KPI ≥ 1), потолка нет. Оклады предварительные: ${ROLES.map(r=>r.short+' '+fmt(getRoleParams(r).oklad)+' ₽').join(', ')} — определим с владельцами.</p>
+    </div>
+    <div id="sumOut"></div>`;
+}
+
+function renderSumOut(){
+  const metric = PROFIT_METRIC, profit = PROFIT_DATA[metric];
+  const idx = pIdx(), N = idx.length, L = pLabel();
+  const sg = v => (v>=0?'+':'')+fmt(v)+' ₽';
+  const cl = v => v>=0?'pos':'neg';
+  const newBy = {}; ROLES.forEach(r=>{ newBy[r.id] = newPaySeries(r, metric); });
+  const wasM = MONTHS.map((m,i)=> ROLES.reduce((s,r)=> s+WAS_PAY[r.id][i], 0));
+  const newM = MONTHS.map((m,i)=> ROLES.reduce((s,r)=> s+newBy[r.id][i], 0));
+  const W = pSum(wasM), Nw = pSum(newM), P = pSum(profit), save = W-Nw;
+
+  const tiles = `
+    <div class="tiles">
+      <div class="tile"><div class="lbl">ФОТ топ-4 было, ${L}</div><div class="v">${fmt(W)} ₽</div></div>
+      <div class="tile"><div class="lbl">ФОТ топ-4 стало, ${L}</div><div class="v">${fmt(Nw)} ₽</div></div>
+      <div class="tile"><div class="lbl">Прибыль компании меняется на</div><div class="v ${cl(save)}">${sg(save)}</div></div>
+      <div class="tile"><div class="lbl">${PROFIT_LABELS[metric]}, факт</div><div class="v">${fmt(P)} ₽</div></div>
+      <div class="tile"><div class="lbl">При новой модели</div><div class="v">${fmt(P+save)} ₽</div></div>
+      <div class="tile"><div class="lbl">Изменение прибыли</div><div class="v ${cl(save)}">${(save/P*100>=0?'+':'')+(save/P*100).toFixed(2)}%</div></div>
+    </div>`;
+
+  const roleRows = ROLES.map(r=>{
+    const w = pSum(WAS_PAY[r.id]), n = pSum(newBy[r.id]), d = n-w;
+    return `<tr><td>${r.short} — ${r.title}</td><td class="num">${fmt(w/N)} ₽</td><td class="num">${fmt(n/N)} ₽</td><td class="num ${cl(d)}">${sg(d/N)}</td><td class="num ${cl(d)}">${sg(d)}</td><td class="num ${cl(d)}">${(d/w*100>=0?'+':'')+(d/w*100).toFixed(1)}%</td></tr>`;
+  }).join('');
+  const roleTable = `
+    <h3 class="block-h">Кто сколько получает — в среднем за месяц (${L})</h3>
+    <table class="data">
+      <thead><tr><th>Роль</th><th style="text-align:right">Было / мес</th><th style="text-align:right">Стало / мес</th><th style="text-align:right">Δ / мес</th><th style="text-align:right">Δ за период</th><th style="text-align:right">Δ %</th></tr></thead>
+      <tbody>${roleRows}</tbody>
+    </table>`;
+
+  let orows='', oW=0,oN=0,oR=0;
+  idx.forEach(i=>{
+    const rev = REV_DATA[i], dW = PROFIT_DATA.distributed[i], dN = dW + (wasM[i]-newM[i]);
+    oW+=dW; oN+=dN; oR+=rev;
+    orows += `<tr><td>${MONTHS[i]}</td><td class="num">${fmt(rev)} ₽</td><td class="num">${fmt(dW)} ₽</td><td class="num">${(dW/rev*100).toFixed(1)}%</td><td class="num">${fmt(dN)} ₽</td><td class="num">${(dN/rev*100).toFixed(1)}%</td><td class="num ${cl(dN-dW)}">${sg(dN-dW)}</td></tr>`;
+  });
+  orows += `<tr><td><b>Итого ${L}</b></td><td class="num">${fmt(oR)} ₽</td><td class="num">${fmt(oW)} ₽</td><td class="num">${(oW/oR*100).toFixed(1)}%</td><td class="num">${fmt(oN)} ₽</td><td class="num">${(oN/oR*100).toFixed(1)}%</td><td class="num ${cl(oN-oW)}">${sg(oN-oW)}</td></tr>`;
+  const ownerTable = `
+    <h3 class="block-h">Владельцам: прибыль к распределению — было и стало</h3>
+    <table class="data">
+      <thead><tr><th>Месяц</th><th style="text-align:right">Выручка</th><th style="text-align:right">К распределению, было</th><th style="text-align:right">% от выручки</th><th style="text-align:right">К распределению, стало</th><th style="text-align:right">% от выручки</th><th style="text-align:right">Разница</th></tr></thead>
+      <tbody>${orows}</tbody>
+    </table>
+    <p class="calc-note">К распределению = чистая прибыль − амортизация − инвестиции (строка 154 БДР). Чистая прибыль в БДР уже после всех зарплат, включая топов; «стало» = факт + (старые выплаты топ-4 − новые).</p>`;
+
+  let mrows = '';
+  idx.forEach(i=>{
+    const diff = wasM[i]-newM[i];
+    mrows += `<tr><td>${MONTHS[i]}</td><td class="num">${fmt(profit[i])} ₽</td><td class="num">${fmt(wasM[i])} ₽</td><td class="num">${fmt(newM[i])} ₽</td><td class="num">${fmt(profit[i]+diff)} ₽</td><td class="num ${cl(diff)}">${sg(diff)}</td></tr>`;
+  });
+  mrows += `<tr><td><b>Итого ${L}</b></td><td class="num">${fmt(P)} ₽</td><td class="num">${fmt(W)} ₽</td><td class="num">${fmt(Nw)} ₽</td><td class="num">${fmt(P+save)} ₽</td><td class="num ${cl(save)}">${sg(save)}</td></tr>`;
+  const monthTable = `
+    <h3 class="block-h">Прибыль компании по месяцам: ${PROFIT_LABELS[metric]}</h3>
+    <table class="data">
+      <thead><tr><th>Месяц</th><th style="text-align:right">Прибыль, факт</th><th style="text-align:right">ФОТ топ-4, было</th><th style="text-align:right">ФОТ топ-4, стало</th><th style="text-align:right">Прибыль при новой модели</th><th style="text-align:right">Разница в прибыли</th></tr></thead>
+      <tbody>${mrows}</tbody>
+    </table>`;
+
+  const ids = ROLES.map(r=>r.id);
+  let prow = '';
+  const t = {}; ids.forEach(id=>{ t[id]={w:0,n:0}; });
+  idx.forEach(i=>{
+    let c = '';
+    ids.forEach(id=>{ const w = WAS_PAY[id][i], n = newBy[id][i]; t[id].w+=w; t[id].n+=n; c += `<td class="num">${fmt(w)} ₽</td><td class="num ${n>=w?'pos':'neg'}">${fmt(n)} ₽</td>`; });
+    prow += `<tr><td>${MONTHS[i]}</td>${c}</tr>`;
+  });
+  prow += `<tr><td><b>Итого ${L}</b></td>${ids.map(id=>`<td class="num">${fmt(t[id].w)} ₽</td><td class="num ${t[id].n>=t[id].w?'pos':'neg'}">${fmt(t[id].n)} ₽</td>`).join('')}</tr>`;
+  const perRole = `
+    <h3 class="block-h">Было / стало по месяцам — по каждому человеку</h3>
+    <table class="data">
+      <thead>
+        <tr><th></th>${ROLES.map(r=>{const p=getRoleParams(r); return `<th colspan="2" style="text-align:center">${r.short} (${fmt(p.oklad)} ₽ · ${(+p.pct).toFixed(2)}%)</th>`;}).join('')}</tr>
+        <tr><th>Месяц</th>${ids.map(()=>'<th style="text-align:right">Было</th><th style="text-align:right">Стало</th>').join('')}</tr>
+      </thead>
+      <tbody>${prow}</tbody>
+    </table>`;
+
+  const bases = ['operating','net','distributed'].map(mt=>{
+    const pr = PROFIT_DATA[mt];
+    const nm = MONTHS.map((m,i)=> ROLES.reduce((s,r)=> s+newPaySeries(r,mt)[i], 0));
+    const d = W - pSum(nm);
+    return `<tr><td>${PROFIT_LABELS[mt]}</td><td class="num">${fmt(pSum(pr))} ₽</td><td class="num">${fmt(pSum(nm))} ₽</td><td class="num ${cl(d)}">${sg(d)}</td></tr>`;
+  }).join('');
+  const baseTable = `
+    <h3 class="block-h">Как зависит от выбора базы прибыли (те же оклады и %)</h3>
+    <table class="data">
+      <thead><tr><th>База для %</th><th style="text-align:right">Прибыль, ${L}</th><th style="text-align:right">ФОТ топ-4 «стало»</th><th style="text-align:right">Разница в прибыли</th></tr></thead>
+      <tbody>${bases}</tbody>
+    </table>
+    <div class="callout">
+      <h4>Как читать</h4>
+      <p>«Прибыль при новой модели» = факт прибыли минус разница между новым и старым ФОТ топ-4 за месяц. Новая формула дешевле старой — прибыль растёт (зелёным); дороже — падает (красным). Δ у человека показывает, на сколько изменится его заработок.</p>
+    </div>`;
+  document.getElementById('sumOut').innerHTML = tiles + roleTable + ownerTable + monthTable + perRole + baseTable;
+}
+
+// ===================== ОБРАТНАЯ МОДЕЛЬ =====================
+let REV_DATA = [], AMORT_DATA = [], INVEST_DATA = [];
+let REG = {slope:0, intercept:0};
+let RV = {target:0, targetNet:0, slope:0, intercept:0, amort:0, extra:[]};
+
+function sumArr(a){ return a.reduce((x,y)=>x+y,0); }
+function mln(v){ return (v/1e6).toLocaleString('ru-RU',{minimumFractionDigits:1,maximumFractionDigits:1}); }
+function revenueForProfit(P){ return (P - RV.intercept)/RV.slope; }
+function profitForRevenue(R){ return RV.slope*R + RV.intercept; }
+// НДФЛ 2025+: прогрессивная шкала по годовому доходу
+const NDFL = [[2.4e6,0.13],[5e6,0.15],[20e6,0.18],[50e6,0.22],[Infinity,0.22]];
+function ndflTax(annual){ let t=0, prev=0; for(const [lim,rate] of NDFL){ if(annual<=prev) break; t += (Math.min(annual,lim)-prev)*rate; prev=lim; } return t; }
+function grossForNet(netMonthly){ // подбор: какой доход до НДФЛ даёт net чистыми в месяц
+  let lo=netMonthly, hi=netMonthly*2;
+  for(let i=0;i<60;i++){ const g=(lo+hi)/2; const net=(g*12-ndflTax(g*12))/12; if(net<netMonthly) lo=g; else hi=g; }
+  return (lo+hi)/2;
+}
+
+function showReverse(){
+  document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-reverse'));
+  roleContent.innerHTML = renderReverse();
+  wireReverse();
+}
+function wireReverse(){
+  document.getElementById('rvStart').addEventListener('change', ()=>{ PERIOD_START = +document.getElementById('rvStart').value; renderReverseOut(); });
+  ['rvTarget','rvTargetNet','rvSlope','rvIntercept','rvAmort'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', ()=>{
+      RV.target = +document.getElementById('rvTarget').value || 0;
+      RV.targetNet = +document.getElementById('rvTargetNet').value || 0;
+      RV.slope = +document.getElementById('rvSlope').value/100 || RV.slope;
+      RV.intercept = (+document.getElementById('rvIntercept').value || 0)*1e6;
+      RV.amort = (+document.getElementById('rvAmort').value || 0)*1e6;
+      renderReverseOut();
+    });
+  });
+  renderReverseOut();
+}
+function renderReverse(){
+  const inp = 'style="width:120px;font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);text-align:right;"';
+  return `
+    <h2 class="section-title">Обратная модель: какая прибыль и выручка нужны</h2>
+    <p class="section-goal">Считаем от цели к выручке. Задаём, сколько в среднем должен получать каждый из четырёх топов, и видим, какая для этого нужна чистая прибыль компании, какая выручка, что остаётся владельцам к распределению (в рублях и в % от выручки) и какую долю прибыли забирает топ-команда. Оклады и % берутся из вкладки «Итог».</p>
+    <div class="calc-box">
+      <div class="calc-row" style="grid-template-columns:420px 160px;"><label>Период факта для базы</label><select id="rvStart" style="font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);">${MONTHS.slice(0,MONTHS.length-2).map((m,i)=>`<option value="${i}"${PERIOD_START===i?' selected':''}>с ${m.toLowerCase()}</option>`).join('')}</select></div>
+      <div class="calc-row" style="grid-template-columns:420px 160px;"><label>Цель А: средний доход топа, ₽/мес до НДФЛ</label><input type="number" id="rvTarget" step="10000" value="${RV.target}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:420px 160px;"><label>Цель Б: средний доход топа, ₽/мес чистыми на руки</label><input type="number" id="rvTargetNet" step="10000" value="${RV.targetNet}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:420px 160px;"><label>Сколько чистой прибыли даёт каждый рубль выручки, %</label><input type="number" id="rvSlope" step="1" value="${(RV.slope*100).toFixed(1)}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:420px 160px;"><label>Постоянная часть (прибыль при нулевой выручке), млн ₽/мес</label><input type="number" id="rvIntercept" step="0.5" value="${(RV.intercept/1e6).toFixed(2)}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:420px 160px;"><label>Амортизация + инвестиции (вычитаем до распределения), млн ₽/мес</label><input type="number" id="rvAmort" step="0.1" value="${(RV.amort/1e6).toFixed(2)}" ${inp}></div>
+      <p class="calc-note" style="margin:4px 0 0;">Связь выручки и прибыли — из факта янв–сен 2026: чистая прибыль ≈ ${(REG.slope*100).toFixed(1)}% × выручка − ${(-REG.intercept/1e6).toFixed(2)} млн ₽ (совпадение с фактом 93%). Безубыточность ≈ ${mln(revenueForProfit(0))} млн ₽ выручки в месяц. НДФЛ — прогрессивная шкала 2025+ (13% до 2,4 млн в год, 15% до 5 млн, 18% до 20 млн). Модель при текущей структуре затрат, без долголетия.</p>
+    </div>
+    <div id="rvOut"></div>`;
+}
+function renderReverseOut(){
+  const okl = ROLES.map(r=>getRoleParams(r).oklad), pct = ROLES.map(r=>getRoleParams(r).pct/100);
+  const sOkl = sumArr(okl), sPct = sumArr(pct);
+  const payAt = P => ROLES.map((r,i)=> Math.max(okl[i] + P*pct[i], okl[i]*1.5));
+  const N = pLen();
+  const P9 = pSum(PROFIT_DATA.net)/N, R9 = pSum(REV_DATA)/N, D9 = pSum(PROFIT_DATA.distributed)/N;
+  const wasFot = sumArr(ROLES.map(r=>pSum(WAS_PAY[r.id])))/N;
+  const newFot = sumArr(ROLES.map(r=>pSum(newPaySeries(r,'net'))))/N;
+  const D9new = D9 + (wasFot - newFot);
+  const profitFor = target => (4*target - sOkl)/sPct;
+  const grossB = grossForNet(RV.targetNet);
+  const targets = [
+    {lbl:`Цель А: ${fmt(RV.target)} ₽ до НДФЛ`, gross:RV.target},
+    {lbl:`Цель Б: ${fmt(RV.targetNet)} ₽ чистыми (= ${fmt(grossB)} ₽ до НДФЛ)`, gross:grossB},
+  ];
+
+  const wasNow = `
+    <h3 class="block-h">Как было и как стало — факт ${pLabel()}, в среднем за месяц</h3>
+    <table class="data">
+      <thead><tr><th></th><th style="text-align:right">Было (факт)</th><th style="text-align:right">Стало (новая модель)</th><th style="text-align:right">Разница</th></tr></thead>
+      <tbody>
+        <tr><td>Выручка</td><td class="num">${fmt(R9)} ₽</td><td class="num">${fmt(R9)} ₽</td><td class="num">—</td></tr>
+        <tr><td>ФОТ топ-4</td><td class="num">${fmt(wasFot)} ₽</td><td class="num">${fmt(newFot)} ₽</td><td class="num ${newFot<=wasFot?'pos':'neg'}">${fmt(newFot-wasFot)} ₽</td></tr>
+        <tr><td>Чистая прибыль</td><td class="num">${fmt(P9)} ₽</td><td class="num">${fmt(P9+wasFot-newFot)} ₽</td><td class="num ${wasFot>=newFot?'pos':'neg'}">${fmt(wasFot-newFot)} ₽</td></tr>
+        <tr><td>Прибыль к распределению владельцам</td><td class="num">${fmt(D9)} ₽</td><td class="num">${fmt(D9new)} ₽</td><td class="num ${D9new>=D9?'pos':'neg'}">${fmt(D9new-D9)} ₽</td></tr>
+        <tr><td><b>К распределению, % от выручки</b></td><td class="num"><b>${(D9/R9*100).toFixed(1)}%</b></td><td class="num"><b>${(D9new/R9*100).toFixed(1)}%</b></td><td class="num ${D9new>=D9?'pos':'neg'}">${((D9new-D9)/R9*100).toFixed(2)} п.п.</td></tr>
+        <tr><td>ФОТ топ-4, % от выручки</td><td class="num">${(wasFot/R9*100).toFixed(2)}%</td><td class="num">${(newFot/R9*100).toFixed(2)}%</td><td class="num">${((newFot-wasFot)/R9*100).toFixed(2)} п.п.</td></tr>
+      </tbody>
+    </table>
+    <p class="calc-note">Чистая прибыль в БДР уже посчитана после всех зарплат, включая топов. «Стало» = факт + (старые выплаты − новые). К распределению = чистая прибыль − амортизация − инвестиции, как в БДР.</p>`;
+
+  let tgtHtml='';
+  targets.forEach(t=>{
+    const Pt = profitFor(t.gross), Rt = revenueForProfit(Pt), pays = payAt(Pt), fot = sumArr(pays), own = Pt - RV.amort;
+    tgtHtml += `
+    <h3 class="block-h">${t.lbl}</h3>
+    <div class="tiles">
+      <div class="tile"><div class="lbl">Нужна чистая прибыль, в месяц</div><div class="v">${fmt(Pt)} ₽</div></div>
+      <div class="tile"><div class="lbl">Нужна выручка, в месяц</div><div class="v">${fmt(Rt)} ₽</div></div>
+      <div class="tile"><div class="lbl">Рост к факту</div><div class="v">прибыль ×${(Pt/P9).toFixed(2)} · выручка ×${(Rt/R9).toFixed(2)}</div></div>
+      <div class="tile"><div class="lbl">ФОТ топ-4 · доля в прибыли</div><div class="v">${fmt(fot)} ₽ · ${(fot/Pt*100).toFixed(1)}%</div></div>
+      <div class="tile"><div class="lbl">Владельцам к распределению</div><div class="v">${fmt(own)} ₽</div></div>
+      <div class="tile"><div class="lbl">К распределению, % от выручки</div><div class="v">${(own/Rt*100).toFixed(1)}% <span style="font-size:13px;color:var(--sc-gray-text)">(сейчас ${(D9/R9*100).toFixed(1)}%)</span></div></div>
+    </div>
+    <table class="data">
+      <thead><tr><th>Роль</th><th style="text-align:right">Оклад</th><th style="text-align:right">%</th><th style="text-align:right">Сейчас (прибыль ${mln(P9)} млн)</th><th style="text-align:right">При цели (прибыль ${mln(Pt)} млн)</th><th style="text-align:right">Чистыми на руки</th></tr></thead>
+      <tbody>${ROLES.map((r,i)=>`<tr><td>${r.short} — ${r.title}</td><td class="num">${fmt(okl[i])} ₽</td><td class="num">${(pct[i]*100).toFixed(2)}%</td><td class="num">${fmt(payAt(P9)[i])} ₽</td><td class="num"><b>${fmt(pays[i])} ₽</b></td><td class="num">${fmt((pays[i]*12-ndflTax(pays[i]*12))/12)} ₽</td></tr>`).join('')}</tbody>
+    </table>`;
+  });
+  const formula = `<p class="calc-note">Формула: нужная прибыль = (4 × цель − сумма окладов ${fmt(sOkl)}) ÷ сумма процентов ${(sPct*100).toFixed(2)}%. Средний доход топа по новой модели при факте — ${fmt(sumArr(payAt(P9))/4)} ₽.</p>`;
+
+  const levels = [P9, ...RV.extra.map(m=>m*1e6), profitFor(RV.target), profitFor(grossB)].sort((a,b)=>a-b);
+  const base = P9, basePay = sumArr(payAt(base));
+  let srows='';
+  levels.forEach(P=>{
+    const pays = payAt(P), fot = sumArr(pays), R = revenueForProfit(P), own = P - RV.amort;
+    const isA = Math.abs(P-profitFor(RV.target))<1, isB = Math.abs(P-profitFor(grossB))<1, isCur = Math.abs(P-P9)<1;
+    srows += `<tr${(isA||isB)?' style="background:var(--sc-bg-soft);font-weight:700;"':''}>
+      <td>${isCur?'Факт '+pLabel():(isA?'Цель А':(isB?'Цель Б':''))}</td>
+      <td class="num">${fmt(R)} ₽</td><td class="num">${fmt(P)} ₽</td><td class="num">${(P/R*100).toFixed(1)}%</td>
+      <td class="num">${fmt(fot/4)} ₽</td><td class="num">${fmt((fot/4*12-ndflTax(fot/4*12))/12)} ₽</td><td class="num">${fmt(fot)} ₽</td>
+      <td class="num">${(fot/P*100).toFixed(1)}%</td><td class="num">${(fot/R*100).toFixed(2)}%</td>
+      <td class="num">${fmt(own)} ₽</td><td class="num">${(own/R*100).toFixed(1)}%</td>
+      <td class="num">${isCur?'—':((fot-basePay)/(P-base)*100).toFixed(1)+'%'}</td>
+    </tr>`;
+  });
+  const scen = `
+    <h3 class="block-h">Сценарии: что получают топы и владельцы при разной прибыли</h3>
+    <table class="data" style="font-size:12px;">
+      <thead><tr><th></th><th style="text-align:right">Выручка/мес</th><th style="text-align:right">Чистая прибыль</th><th style="text-align:right">Рентаб.</th><th style="text-align:right">Средний топ до НДФЛ</th><th style="text-align:right">Чистыми</th><th style="text-align:right">ФОТ топ-4</th><th style="text-align:right">ФОТ от прибыли</th><th style="text-align:right">ФОТ от выручки</th><th style="text-align:right">Владельцам к распред.</th><th style="text-align:right">% от выручки</th><th style="text-align:right">Топам из ₽ прироста</th></tr></thead>
+      <tbody>${srows}</tbody>
+    </table>
+    <div class="callout">
+      <h4>Как читать</h4>
+      <p>Из каждого дополнительного рубля прибыли топ-команда получает ${(sPct*100).toFixed(1)} копеек, ${(100-sPct*100).toFixed(1)} копеек остаются в компании. Доля ФОТ топ-4 в прибыли с ростом падает, потому что оклады фиксированы, а доля владельцев к распределению в выручке растёт.</p>
+      <p class="assumption">Владельцам — «к распределению» = чистая прибыль − амортизация − инвестиции (средние по факту). Выручка считается при текущей структуре затрат; долголетие — отдельная вкладка.</p>
+    </div>`;
+  document.getElementById('rvOut').innerHTML = wasNow + tgtHtml + formula + scen;
+}
+
+// ===================== ДОЛГОЛЕТИЕ =====================
+let LG_MONTHS = [], LG_REV = [];
+let LG = {margin:0, pct:{}};
+let LG_NOTES = {s1:'', s2:'', s3:'', s4:''};
+
+function showLongevity(){
+  document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-dolgoletie'));
+  ROLES.forEach(r=>{ if(LG.pct[r.id]===undefined) LG.pct[r.id] = +getRoleParams(r).pct.toFixed(2); });
+  roleContent.innerHTML = renderLongevity();
+  wireLongevity();
+}
+function wireLongevity(){
+  document.getElementById('lgMargin').addEventListener('input', ()=>{ LG.margin = +document.getElementById('lgMargin').value || 0; renderLongevityOut(); });
+  ROLES.forEach(r=> document.getElementById('lgPct-'+r.id).addEventListener('input', ()=>{ LG.pct[r.id] = +document.getElementById('lgPct-'+r.id).value || 0; renderLongevityOut(); }));
+  document.getElementById('lgReset').onclick = ()=>{ ROLES.forEach(r=>{ LG.pct[r.id] = +getRoleParams(r).pct.toFixed(2); document.getElementById('lgPct-'+r.id).value = LG.pct[r.id]; }); renderLongevityOut(); };
+  document.querySelectorAll('.lg-note').forEach(t=> t.addEventListener('input', ()=>{ LG_NOTES[t.dataset.k] = t.value; }));
+  renderLongevityOut();
+}
+function renderLongevity(){
+  const inp = 'style="width:90px;font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);text-align:right;"';
+  const ta = k => `<textarea class="lg-note" data-k="${k}" style="width:100%;min-height:90px;font-family:var(--sc-font);font-size:13px;line-height:150%;padding:10px 12px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);resize:vertical;">${LG_NOTES[k]}</textarea>`;
+  const stage = (n,h,k) => `<div class="card"><span class="num">${n}</span><h4>${h}</h4>${ta(k)}</div>`;
+  const pctInputs = ROLES.map(r=>`<div class="calc-row" style="grid-template-columns:120px 100px;"><label>${r.short}</label><input type="number" id="lgPct-${r.id}" step="0.05" value="${LG.pct[r.id]}" ${inp}></div>`).join('');
+  return `
+    <h2 class="section-title">Долголетие: мотивация на новое направление</h2>
+    <p class="section-goal">Деньги появляются там же, где появляется экономика, а не раньше. Направление создаёт нагрузку у всех четырёх ролей, не только у маркетинга. Ниже — этапы с формулами (текст правится прямо здесь), план направления из финмодели и расчёт, что он даст топам.</p>
+    <h3 class="block-h">Этапы и формулы — правь текст</h3>
+    <div class="card-grid">
+      ${stage(1,'До старта — пациентов нет','s1')}
+      ${stage(2,'Первые пациенты, прибыли нет','s2')}
+      ${stage(3,'Вышли в операционную прибыль','s3')}
+      ${stage(4,'Зрелая стадия','s4')}
+    </div>
+    <div class="callout">
+      <h4>Принципы, которые проговорили с Еленой</h4>
+      <p>Одна формула на всю компанию: отдельных «долголетских» процентов ни у кого нет, с выходом направления в прибыль база для процента просто становится больше.</p>
+      <p>До старта и до операционной прибыли участие в запуске — часть текущей работы за текущие деньги. Это не бесплатный труд: так устроен любой запуск, и приглашение в него — само по себе ценность (можно было нанять людей со стороны).</p>
+      <p>Если кто-то из топов скажет, что не готов участвовать в запуске без доплаты, ответ один: тогда обсуждаем только фиксированную доплату к окладу за дополнительный объём работы, а сама формула премии от прибыли ни для кого не меняется и отдельного процента с долголетия не появляется.</p>
+      <p>Проверочный вопрос для любого спора о деньгах: найдём ли мы на рынке человека на эти деньги с этим функционалом.</p>
+    </div>
+    <h3 class="block-h">Что даст топам прибыль направления</h3>
+    <div class="calc-box">
+      <div class="calc-row" style="grid-template-columns:420px 110px;"><label>Прибыль направления, % от выручки (расходы в модели не заполнены)</label><input type="number" id="lgMargin" step="1" value="${LG.margin}" ${inp}></div>
+      <p class="calc-note" style="margin:0 0 10px;">% каждого топа с прибыли направления — по умолчанию как в грейдинге, можно задать отдельно (например, если решим, что вклад маркетинга здесь выше):</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px;">${pctInputs}</div>
+      <button id="lgReset" style="font-family:var(--sc-font);border:1px solid var(--sc-ink);background:transparent;padding:8px 16px;border-radius:var(--sc-radius-pill);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Как в грейдинге</button>
+    </div>
+    <div id="lgOut"></div>`;
+}
+function renderLongevityOut(){
+  const pct = ROLES.map(r=>(LG.pct[r.id]||0)/100), sPct = sumArr(pct);
+  const prof = LG_REV.map(rv=> rv*LG.margin/100);
+  const sumRev = sumArr(LG_REV), sumProf = sumArr(prof);
+  let rows='';
+  prof.forEach((p,i)=>{
+    rows += `<tr><td>${LG_MONTHS[i]}</td><td class="num">${fmt(LG_REV[i])} ₽</td><td class="num">${fmt(p)} ₽</td><td class="num">${fmt(p*sPct)} ₽</td>${ROLES.map((r,j)=>`<td class="num">${fmt(p*pct[j])} ₽</td>`).join('')}<td class="num">${fmt(p*(1-sPct))} ₽</td></tr>`;
+  });
+  rows += `<tr><td><b>Итого 12 мес</b></td><td class="num">${fmt(sumRev)} ₽</td><td class="num">${fmt(sumProf)} ₽</td><td class="num">${fmt(sumProf*sPct)} ₽</td>${ROLES.map((r,j)=>`<td class="num">${fmt(sumProf*pct[j])} ₽</td>`).join('')}<td class="num">${fmt(sumProf*(1-sPct))} ₽</td></tr>`;
+  rows += `<tr><td><b>В среднем в месяц</b></td><td class="num">${fmt(sumRev/12)} ₽</td><td class="num">${fmt(sumProf/12)} ₽</td><td class="num">${fmt(sumProf*sPct/12)} ₽</td>${ROLES.map((r,j)=>`<td class="num">${fmt(sumProf*pct[j]/12)} ₽</td>`).join('')}<td class="num">${fmt(sumProf*(1-sPct)/12)} ₽</td></tr>`;
+  document.getElementById('lgOut').innerHTML = `
+    <div class="tiles">
+      <div class="tile"><div class="lbl">Выручка направления, первый год (план)</div><div class="v">${mln(sumRev)} млн ₽</div></div>
+      <div class="tile"><div class="lbl">Прибыль направления при ${LG.margin}%</div><div class="v">${mln(sumProf)} млн ₽</div></div>
+      <div class="tile"><div class="lbl">Топ-4 с неё за год · в месяц</div><div class="v">${mln(sumProf*sPct)} млн ₽ · ${fmt(sumProf*sPct/12)} ₽</div></div>
+    </div>
+    <table class="data" style="font-size:12px;">
+      <thead><tr><th>Месяц</th><th style="text-align:right">Выручка (план)</th><th style="text-align:right">Прибыль ${LG.margin}%</th><th style="text-align:right">Топ-4 всего</th>${ROLES.map((r,j)=>`<th style="text-align:right">${r.short} ${(pct[j]*100).toFixed(2)}%</th>`).join('')}<th style="text-align:right">Остаётся компании</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p class="calc-note">Это прибавка к обычной премии: как только направление в плюсе (этап 3), его прибыль добавляется к базе, и каждый получает свой % с неё. Для сравнения: Миша просил ${MISHA.revenuePct}% от выручки направления = ${fmt(sumRev*MISHA.revenuePct/100/12)} ₽/мес при этом плане, то есть в ${(sumRev*MISHA.revenuePct/100/(sumProf*pct[2]||1)).toFixed(0)} раз больше, чем даёт ему наша формула при его ${(pct[2]*100).toFixed(2)}%.</p>`;
+}
+
+// ===================== МИША =====================
+function showMisha(){
+  document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-misha'));
+  roleContent.innerHTML = renderMisha();
+}
+function renderMisha(){
+  const mk = ROLES.find(r=>r.id==='mkt'), p = getRoleParams(mk);
+  const P9 = pSum(PROFIT_DATA.net)/pLen();
+  const ours = Math.max(p.oklad + P9*p.pct/100, p.oklad*1.5);
+  const lgYear = sumArr(LG_REV);
+  const scen = MISHA.scenarios;
+  const srows = scen.map(([rv,lbl])=>{
+    const his = MISHA.guarantee + rv*MISHA.revenuePct/100/12;
+    // наша модель: оклад + % от прибыли компании; прибыль долголетия при допущении рентабельности 20% добавляется к базе
+    const lgProfit = rv*MISHA.lgMarginAssumption/100/12;
+    const our = Math.max(p.oklad + (P9+lgProfit)*p.pct/100, p.oklad*1.5);
+    return `<tr><td>${rv/1e6} млн ₽ — ${lbl}</td><td class="num">${fmt(rv*MISHA.revenuePct/100/12)} ₽</td><td class="num"><b>${fmt(his)} ₽</b></td><td class="num">${fmt(lgProfit*p.pct/100)} ₽</td><td class="num"><b>${fmt(our)} ₽</b></td><td class="num neg">${fmt(our-his)} ₽</td></tr>`;
+  }).join('');
+  return `
+    <h2 class="section-title">Миша: запрос, что говорила Елена, наша позиция</h2>
+    <p class="section-goal">Всё, что относится к мотивации руководителя маркетинга, собрано на одном листе: его предложение от 18 августа, разбор с Еленой (встречи 3 и 4), наша модель и разница в деньгах.</p>
+
+    <h3 class="block-h">Что предложил Миша (презентация 18.08.2026)</h3>
+    <div class="card-grid">
+      ${MISHA.offerCards.map(c=>`<div class="card"><span class="tag fact">${c.tag}</span><h4>${c.h}</h4><p>${c.p}</p></div>`).join('')}
+    </div>
+    <table class="data">
+      <thead><tr><th>Сценарий выручки долголетия в год</th><th style="text-align:right">Его ${MISHA.revenuePct}%, в мес</th><th style="text-align:right">Его итого в мес</th><th style="text-align:right">Наша модель: прибавка от долголетия</th><th style="text-align:right">Наша модель итого в мес</th><th style="text-align:right">Разница</th></tr></thead>
+      <tbody>${srows}</tbody>
+    </table>
+    <p class="calc-note">Наша модель: оклад ${fmt(p.oklad)} ₽ + ${p.pct.toFixed(2)}% от чистой прибыли компании (сейчас ≈ ${fmt(P9)} ₽/мес → ${fmt(ours)} ₽). Прибыль долголетия взята как ${MISHA.lgMarginAssumption}% от выручки направления — допущение, модель расходов ещё не заполнена. План первого года по текущей финмодели — ${mln(lgYear)} млн ₽ выручки.</p>
+
+    <h3 class="block-h">Что говорила Елена</h3>
+    <div class="card-grid">
+      <div class="card"><span class="num">1</span><h4>Процент от выручки направления — нет</h4><p>«Это не тот бизнес, не та функция». Продюсерская модель из инфобиза (доля с результата, 50/50 с экспертом) — его прежний паттерн; «то, что привело тебя сюда, не приведёт тебя туда». Руководитель функции в найме живёт в другой математике, чем партнёр с долей. Если хочет предпринимательскую модель — это не в борде.</p></div>
+      <div class="card"><span class="num">2</span><h4>Сейчас функция «на единичку» — и это нормально</h4><p>Маркетинг в нашей клинике объективно оценён на 1 по влиянию на финрезультат: основной поток — сарафан, владельцы сами делают маркетинг нативно. Это не «плохо работает», а «больше единицы здесь не нужно». Свободные усилия естественно направляются в долголетие, где роль может стать «двойкой» или «тройкой» — и тогда грейд пересматривается честно, через те же факторы.</p></div>
+      <div class="card"><span class="num">3</span><h4>Деньги — по этапам, как у всех</h4><p>До старта — без доплат (бонус за запуск только из инвестбюджета). До операционной прибыли — возможен рост оклада. С операционной прибылью — общая формула, прибыль направления просто увеличивает базу. Отдельного процента за долголетие ни у кого, включая Мишу.</p></div>
+      <div class="card"><span class="num">4</span><h4>Сначала понять, что за запросом</h4><p>«Сколько тебе надо?» Если это 50 тысяч — цена вопроса 50 тысяч, формулы ради этого не переписывают. Если это предпринимательская амбиция — честно сказать: такие деньги возможны, но не этим способом и не в этой роли. Альтернатива вне системы топов — учебный центр на партнёрских/продюсерских условиях.</p></div>
+      <div class="card"><span class="num">5</span><h4>Гонорар за результат — да, процент с выручки — нет</h4><p>«Говорить о хорошем гонораре — окей, в связи с твоим влиянием на свои результаты. Но привязывать процентарно — это не тот бизнес». Сверхусилие заслуживает вознаграждения, но оно договаривается заранее и один раз, а дальше «просто формула остаётся».</p></div>
+      <div class="card"><span class="num">6</span><h4>Плохую новость сообщить прямо</h4><p>«Не нужно обгревать». Большие разовые деньги в прошлом — признак потенциала, к ним придёшь, но другим способом. Это его личная стратегия, не зарплатная формула клиники.</p></div>
+    </div>
+
+    <div class="callout">
+      <h4>Наша позиция к разговору</h4>
+      <p>1. Модель «${MISHA.revenuePct}% от выручки направления» не принимаем — ни у кого в борде нет процента от выручки, все на одной формуле от прибыли компании.</p>
+      <p>2. Что можем обсуждать: индексацию оклада (его аргумент про 21% инфляции и отсутствие пересмотра два года — справедливый, это касается всех топов), оклад на период стройки по этапу 2, пересмотр грейда после выхода долголетия в прибыль.</p>
+      <p>3. Разрыв в деньгах большой (см. таблицу): его оффер в стандартном сценарии ≈ ${fmt(MISHA.guarantee + (MISHA.scenarios[1]?MISHA.scenarios[1][0]:0)*MISHA.revenuePct/100/12)} ₽/мес, наша модель ≈ ${fmt(Math.max(p.oklad + (P9+(MISHA.scenarios[1]?MISHA.scenarios[1][0]:0)*MISHA.lgMarginAssumption/100/12)*p.pct/100, p.oklad*1.5))} ₽. Это надо проговорить до встречи, а не на ней.</p>
+      <p class="assumption">Тезисы для подготовки, не формулировки для цитирования. Оффер Миши — справочно; его дополнительные материалы добавим сюда же.</p>
+    </div>`;
+}
+
+// ===================== ОФФЕР МИШЕ ПО ЭТАПАМ =====================
+let LG_GRADING = {};
+let MISHA = {guarantee:0, buildBonus:0, revenuePct:0, lgMarginAssumption:0, scenarios:[], offerCards:[]};
+function initLgGrading(){
+  ROLES.forEach(r=>{ if(!LG_GRADING[r.id]) LG_GRADING[r.id] = Object.assign({}, r.grading); });
+}
+function computeLgGrades(){
+  initLgGrading();
+  const wsum = FACTORS.reduce((a,f)=>a+f.weight,0), totals={};
+  ROLES.forEach(r=>{ let t=0; FACTORS.forEach(f=>{ t += (LG_GRADING[r.id][f.key]||0)*f.weight; }); totals[r.id]=t/wsum; });
+  const sum = ROLES.reduce((a,r)=>a+totals[r.id],0), res={};
+  ROLES.forEach(r=>{ res[r.id] = {total:totals[r.id], share:totals[r.id]/sum, suggestedPct:POOL_PCT*totals[r.id]/sum}; });
+  return res;
+}
+let OFF = {launchBonus:0, launchMonths:0, stage2Add:0, lgProfit:null, stomProfit:null};
+
+function showOffer(){
+  document.querySelectorAll('#roleNav button').forEach(b=>b.classList.toggle('active', b.id==='nav-offer'));
+  initLgGrading();
+  if(OFF.lgProfit===null) OFF.lgProfit = Math.round(sumArr(LG_REV)*LG.margin/100/12);
+  if(OFF.stomProfit===null) OFF.stomProfit = Math.round(pSum(PROFIT_DATA.net)/pLen());
+  roleContent.innerHTML = renderOffer();
+  wireOffer();
+}
+function wireOffer(){
+  document.querySelectorAll('.lg-grade').forEach(el=> el.addEventListener('input', ()=>{ LG_GRADING[el.dataset.role][el.dataset.factor] = +el.value||0; renderOfferOut(); }));
+  ['offLaunchBonus','offLaunchMonths','offStage2Add','offLgProfit','offStomProfit'].forEach(id=> document.getElementById(id).addEventListener('input', ()=>{
+    OFF.launchBonus = +document.getElementById('offLaunchBonus').value||0;
+    OFF.launchMonths = +document.getElementById('offLaunchMonths').value||0;
+    OFF.stage2Add = +document.getElementById('offStage2Add').value||0;
+    OFF.lgProfit = +document.getElementById('offLgProfit').value||0;
+    OFF.stomProfit = +document.getElementById('offStomProfit').value||0;
+    renderOfferOut();
+  }));
+  document.getElementById('offApply').onclick = ()=>{ const g=computeLgGrades(); ROLES.forEach(r=>{ LG.pct[r.id] = +g[r.id].suggestedPct.toFixed(2); }); document.getElementById('offApplyNote').textContent = 'Проценты перенесены на вкладку «Долголетие».'; };
+  renderOfferOut();
+}
+function renderOffer(){
+  const inp = 'style="width:120px;font-family:var(--sc-font);font-size:14px;padding:6px 8px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);text-align:right;"';
+  const cell = 'style="width:52px;text-align:center;font-family:var(--sc-font);font-size:14px;padding:4px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);"';
+  const rows = FACTORS.map(f=>`<tr><td><b>${f.label}</b> <span style="color:var(--sc-gray-text);font-size:12px;">· вес ${f.weight}%</span></td>${ROLES.map(r=>`<td style="text-align:center"><span style="color:var(--sc-gray-text);font-size:12px;">${r.grading[f.key]} →</span> <input type="number" min="1" max="3" step="1" class="lg-grade" data-role="${r.id}" data-factor="${f.key}" value="${LG_GRADING[r.id][f.key]}" ${cell}></td>`).join('')}</tr>`).join('');
+  return `
+    <h2 class="section-title">Оффер Мише: условия по этапам в цифрах</h2>
+    <p class="section-goal">Одна роль, один договор, одна формула. Доход меняется по мере того, как направление «Долголетие» проходит этапы: стоматология как есть → запуск → первые пациенты → прибыль. Все цифры ниже можно править; оклад и % по стоматологии берутся из вкладки «Итог».</p>
+
+    <h3 class="block-h">Грейдинг для направления «Долголетие»</h3>
+    <p class="calc-note" style="margin:0 0 12px;">Те же пять факторов и те же веса, что в основном грейдинге. Для долголетия у Миши влияние на финрезультат уже прямое (3) и масштаб ответственности шире (2) — остальные оценки без изменений. Слева в серых цифрах — оценка по стоматологии, в поле — по долголетию. Доли в фонде 8% пересчитываются, поэтому у остальных % с прибыли направления чуть ниже, чем по стоматологии.</p>
+    <table class="data">
+      <thead><tr><th>Фактор</th>${ROLES.map(r=>`<th style="text-align:center">${r.short}</th>`).join('')}</tr></thead>
+      <tbody>${rows}<tr id="lgTotRow"></tr><tr id="lgStomRow"></tr><tr id="lgPctRow"></tr></tbody>
+    </table>
+    <button id="offApply" style="font-family:var(--sc-font);border:1px solid var(--sc-ink);background:transparent;padding:8px 16px;border-radius:var(--sc-radius-pill);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Перенести % на вкладку «Долголетие»</button> <span id="offApplyNote" class="calc-note" style="margin-left:10px;"></span>
+
+    <h3 class="block-h">Параметры оффера</h3>
+    <div class="calc-box">
+      <div class="calc-row" style="grid-template-columns:460px 140px;"><label>Этап 1 — фиксированная премия за запуск, ₽/мес (на период стройки)</label><input type="number" id="offLaunchBonus" step="5000" value="${OFF.launchBonus}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:460px 140px;"><label>Этап 1 — длительность, мес</label><input type="number" id="offLaunchMonths" step="1" value="${OFF.launchMonths}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:460px 140px;"><label>Этап 2 — надбавка к окладу, ₽/мес</label><input type="number" id="offStage2Add" step="5000" value="${OFF.stage2Add}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:460px 140px;"><label>Чистая прибыль по стоматологии, ₽/мес (база для стоматологического %)</label><input type="number" id="offStomProfit" step="100000" value="${OFF.stomProfit}" ${inp}></div>
+      <div class="calc-row" style="grid-template-columns:460px 140px;"><label>Прибыль направления «Долголетие» на этапе 3, ₽/мес</label><input type="number" id="offLgProfit" step="100000" value="${OFF.lgProfit}" ${inp}></div>
+      <p class="calc-note" style="margin:4px 0 0;">По умолчанию: прибыль стоматологии — средняя за янв–сен 2026; прибыль долголетия — план выручки из финмодели × ${LG.margin}% (вкладка «Долголетие»), в среднем за первый год.</p>
+    </div>
+    <div id="offOut"></div>`;
+}
+function renderOfferOut(){
+  const g = computeLgGrades();
+  document.getElementById('lgTotRow').innerHTML = `<td><b>Взвешенный балл (долголетие)</b></td>${ROLES.map(r=>`<td style="text-align:center;font-weight:700;">${g[r.id].total.toFixed(2)}</td>`).join('')}`;
+  document.getElementById('lgStomRow').innerHTML = `<td>% по стоматологии (основной грейдинг)</td>${ROLES.map(r=>`<td style="text-align:center;color:var(--sc-gray-text);">${GRADE_RESULT[r.id].suggestedPct.toFixed(2)}%</td>`).join('')}`;
+  document.getElementById('lgPctRow').innerHTML = `<td><b>% с прибыли долголетия</b></td>${ROLES.map(r=>`<td style="text-align:center;font-weight:700;color:var(--sc-bronze);">${g[r.id].suggestedPct.toFixed(2)}%</td>`).join('')}`;
+
+  const mk = ROLES.find(r=>r.id==='mkt'), p = getRoleParams(mk);
+  const okl = p.oklad, stomPct = p.pct/100, lgPct = g.mkt.suggestedPct/100;
+  const stomPrem = Math.max(OFF.stomProfit*stomPct, okl*0.5); // гарантия 1,5 оклада ⇒ премия не меньше 0,5 оклада
+  const lgPrem = Math.max(OFF.lgProfit,0)*lgPct;
+  const net = v => (v*12 - ndflTax(v*12))/12;
+  const stages = [
+    {n:'0', h:'Стоматология — как сейчас', when:'действует с момента принятия модели', okl:okl, add:0, stom:stomPrem, launch:0, lg:0,
+     note:`Оклад ${fmt(okl)} ₽ + ${(stomPct*100).toFixed(2)}% от чистой прибыли компании. Гарантия 1,5 оклада при KPI ≥ 100%.`},
+    {n:'1', h:'Запуск долголетия — стройка', when:`до старта продаж, ${OFF.launchMonths} мес`, okl:okl, add:0, stom:stomPrem, launch:OFF.launchBonus, lg:0,
+     note:`То же + фиксированная премия за запуск ${fmt(OFF.launchBonus)} ₽/мес (из инвестбюджета направления). За период — ${fmt(OFF.launchBonus*OFF.launchMonths)} ₽.`},
+    {n:'2', h:'Первые пациенты, прибыли ещё нет', when:'с первой выручки направления до выхода в плюс', okl:okl+OFF.stage2Add, add:OFF.stage2Add, stom:stomPrem, launch:0, lg:0,
+     note:`Оклад растёт на ${fmt(OFF.stage2Add)} ₽ за дополнительный объём работы. Премия за запуск прекращается. Процент с направления ещё не считаем — прибыли нет.`},
+    {n:'3', h:'Направление в операционной прибыли', when:'с первого месяца положительной прибыли направления', okl:okl+OFF.stage2Add, add:OFF.stage2Add, stom:stomPrem, launch:0, lg:lgPrem,
+     note:`Добавляется ${(lgPct*100).toFixed(2)}% с прибыли направления (по грейдингу долголетия). При прибыли ${fmt(OFF.lgProfit)} ₽/мес это ${fmt(lgPrem)} ₽. Дальше — пересмотр грейда раз в квартал по факту.`},
+  ];
+  const rows = stages.map(s=>{ const tot = s.okl + s.stom + s.launch + s.lg; return `<tr><td><b>${s.n}. ${s.h}</b><br><span style="color:var(--sc-gray-text);font-size:12px;">${s.when}</span></td><td class="num">${fmt(s.okl)} ₽</td><td class="num">${fmt(s.stom)} ₽</td><td class="num">${s.launch?fmt(s.launch)+' ₽':'—'}</td><td class="num">${s.lg?fmt(s.lg)+' ₽':'—'}</td><td class="num"><b>${fmt(tot)} ₽</b></td><td class="num">${fmt(net(tot))} ₽</td></tr>`; }).join('');
+  const cards = stages.map(s=>`<div class="card"><span class="num">${s.n}</span><h4>${s.h}</h4><p>${s.note}</p></div>`).join('');
+  document.getElementById('offOut').innerHTML = `
+    <h3 class="block-h">Доход по этапам, в месяц</h3>
+    <table class="data">
+      <thead><tr><th>Этап</th><th style="text-align:right">Оклад</th><th style="text-align:right">Премия стоматология</th><th style="text-align:right">Премия за запуск</th><th style="text-align:right">Премия долголетие</th><th style="text-align:right">Итого до НДФЛ</th><th style="text-align:right">Чистыми</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p class="calc-note">Премия по стоматологии посчитана при прибыли ${fmt(OFF.stomProfit)} ₽/мес.</p>
+    <div class="card-grid">${cards}</div>
+    <div class="callout">
+      <h4>Как это объяснить Мише</h4>
+      <p>Никакой отдельной формулы: та же конструкция, что у всех четверых. Разница только в том, что его роль в долголетии оценена выше, чем в стоматологии, — и это отражено в его проценте с прибыли направления. Чем прибыльнее направление, тем больше он получает, без потолка.</p>
+      <p>Что он получает сверх общей модели: премию за запуск на этапе стройки и рост оклада с первых пациентов. Что не получает: процент с выручки — ни он, ни кто-либо другой в борде.</p>
+    </div>`;
+}
+
+// ===================== ХРАНЕНИЕ: загрузка, сохранение, пароль =====================
+const API = '__APPS_SCRIPT_URL__'; // адрес веб-приложения Apps Script (…/exec)
+let PASSWORD = sessionStorage.getItem('sc_pw') || '';
+let SERVER_VERSION = 0;         // счётчик версии в таблице (лист «Настройки», meta.version)
+let LAST_SAVED = null;          // последний сохранённый снимок (строка JSON)
+let DIRTY = false;
+let SAVE_TIMER = null;
+let SAVING = false;
+let SAVE_QUEUED = false;
+
+function applyData(d){
+  if(d.content) CONTENT = d.content;
+  ROLES = CONTENT.roles.map(r=>{
+    const rp = d.roleParams[r.id] || {};
+    const role = Object.assign({}, r, {
+      grading: Object.assign({}, d.grading.scores[r.id]),
+      propose: {oklad: rp.oklad},
+      kpiCurrent: (d.kpi[r.id]||{}).current || [],
+      kpiLeading: (d.kpi[r.id]||{}).leading || [],
+    });
+    const cur = {oklad: rp.oklad};
+    if(rp.pct !== null && rp.pct !== undefined) cur.pct = rp.pct;
+    if(rp.kpi !== null && rp.kpi !== undefined) cur.kpi = rp.kpi;
+    role.current = cur;
+    return role;
+  });
+  FACTORS = CONTENT.factors.map(f=> Object.assign({}, f, {weight: d.grading.weights[f.key]}));
+  OD_ROLE.grading = Object.assign({}, d.grading.scores.od || {});
+  POOL_PCT = d.grading.poolPct;
+  PROFIT_METRIC = d.settings.profitMetric;
+  PERIOD_START = d.settings.periodStart;
+  MONTHS = d.data.months.slice();
+  PROFIT_DATA = {operating:d.data.profit.operating.slice(), net:d.data.profit.net.slice(), distributed:d.data.profit.distributed.slice()};
+  WAS_PAY = {}; Object.keys(d.data.wasPay).forEach(k=>{ WAS_PAY[k] = d.data.wasPay[k].slice(); });
+  REV_DATA = d.data.revenue.slice(); AMORT_DATA = d.data.amort.slice(); INVEST_DATA = d.data.invest.slice();
+  REG = {slope: d.reverse.slope, intercept: d.reverse.intercept};
+  RV = {target:d.reverse.target, targetNet:d.reverse.targetNet, slope:d.reverse.slope, intercept:d.reverse.intercept, amort:d.reverse.amort, extra:d.reverse.extra.slice()};
+  LG_MONTHS = d.longevity.months.slice(); LG_REV = d.longevity.revenuePlan.slice();
+  LG = {margin: d.longevity.margin, pct: {}};
+  Object.keys(d.longevity.pct||{}).forEach(k=>{ if(d.longevity.pct[k]!==null && d.longevity.pct[k]!==undefined) LG.pct[k]=d.longevity.pct[k]; });
+  LG_NOTES = Object.assign({}, d.longevity.notes);
+  OFF = {launchBonus:d.offer.launchBonus, launchMonths:d.offer.launchMonths, stage2Add:d.offer.stage2Add, lgProfit:d.offer.lgProfit, stomProfit:d.offer.stomProfit};
+  LG_GRADING = {}; Object.keys(d.offer.grading||{}).forEach(k=>{ LG_GRADING[k] = Object.assign({}, d.offer.grading[k]); });
+  MISHA = Object.assign({offerCards:CONTENT.mishaCards, scenarios:CONTENT.mishaScenarios}, d.misha||{});
+  GRADE_RESULT = computeGrades();
+  LAST_SAVED = JSON.stringify(collectData());
+}
+
+function collectData(){
+  const base = {};
+  base.misha = {guarantee:MISHA.guarantee, buildBonus:MISHA.buildBonus, revenuePct:MISHA.revenuePct, lgMarginAssumption:MISHA.lgMarginAssumption};
+  base.grading = { poolPct: POOL_PCT, weights: Object.fromEntries(FACTORS.map(f=>[f.key, f.weight])),
+    scores: Object.assign(Object.fromEntries(ROLES.map(r=>[r.id, r.grading])), {od: OD_ROLE.grading}) };
+  base.roleParams = Object.fromEntries(ROLES.map(r=>{ const c=r.current||{}; return [r.id, {oklad: c.oklad!==undefined?c.oklad:r.propose.oklad, pct: c.pct!==undefined?c.pct:null, kpi: c.kpi!==undefined?c.kpi:null}]; }));
+  base.settings = {profitMetric: PROFIT_METRIC, periodStart: PERIOD_START};
+  base.kpi = Object.fromEntries(ROLES.map(r=>[r.id, {current: r.kpiCurrent, leading: r.kpiLeading}]));
+  base.reverse = {target:RV.target, targetNet:RV.targetNet, slope:RV.slope, intercept:RV.intercept, amort:RV.amort, extra:RV.extra};
+  base.longevity = {margin:LG.margin, pct:Object.fromEntries(ROLES.map(r=>[r.id, LG.pct[r.id]!==undefined?LG.pct[r.id]:null])), notes:LG_NOTES, months:LG_MONTHS, revenuePlan:LG_REV};
+  base.offer = {launchBonus:OFF.launchBonus, launchMonths:OFF.launchMonths, stage2Add:OFF.stage2Add, lgProfit:OFF.lgProfit, stomProfit:OFF.stomProfit,
+    grading: Object.fromEntries(ROLES.map(r=>[r.id, LG_GRADING[r.id] || r.grading]))};
+  base.data = {months:MONTHS, profit:PROFIT_DATA, revenue:REV_DATA, amort:AMORT_DATA, invest:INVEST_DATA, wasPay:WAS_PAY};
+  return base;
+}
+
+// понятное сообщение коммита: что изменилось
+function diffSummary(oldStr, newObj){
+  try{
+    const o = JSON.parse(oldStr), out = [];
+    const walk = (a,b,path)=>{
+      if(out.length>=6) return;
+      if(typeof a!=='object' || a===null || typeof b!=='object' || b===null){ if(JSON.stringify(a)!==JSON.stringify(b)) out.push(path+': '+fmtV(a)+' → '+fmtV(b)); return; }
+      const keys = new Set([...Object.keys(a),...Object.keys(b)]);
+      keys.forEach(k=> walk(a[k], b[k], path?path+'.'+k:k));
+    };
+    const fmtV = v => Array.isArray(v)?'['+v.length+']':(typeof v==='string'?('"'+v.slice(0,20)+(v.length>20?'…':'')+'"'):String(v));
+    walk(o, newObj, '');
+    return out.length ? out.join('; ') : 'без изменений значений';
+  }catch(e){ return 'изменение данных'; }
+}
+
+function setStatus(text, kind){
+  const el = document.getElementById('saveStatus'); if(!el) return;
+  el.textContent = text; el.className = 'save-status ' + (kind||'');
+}
+function markDirty(){
+  DIRTY = true;
+  setStatus('есть несохранённые изменения', 'dirty');
+  clearTimeout(SAVE_TIMER);
+  SAVE_TIMER = setTimeout(()=> saveNow(), 3000);
+}
+async function saveNow(force){
+  clearTimeout(SAVE_TIMER);
+  if(SAVING){ SAVE_QUEUED = true; return; }
+  const data = collectData();
+  const str = JSON.stringify(data);
+  if(!force && str === LAST_SAVED){ DIRTY=false; setStatus('сохранено ✓', 'ok'); return; }
+  SAVING = true; setStatus('сохраняется…', 'saving');
+  data.updatedAt = new Date().toISOString();
+  const message = 'Мотивация топов: ' + diffSummary(LAST_SAVED, data);
+  try{
+    const j = await apiCall({action:'put', data, version:SERVER_VERSION, message, force:!!force});
+    if(j.error==='conflict'){ SAVING=false; setStatus('конфликт версий: данные в таблице изменились', 'err'); showConflict(); return; }
+    if(j.error==='unauthorized'){ SAVING=false; setStatus('не сохранилось: неверный пароль', 'err'); askPassword(); return; }
+    if(j.error) throw new Error(j.error);
+    SERVER_VERSION = j.version; LAST_SAVED = JSON.stringify(data); DIRTY=false;
+    setStatus('сохранено ✓ '+new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}), 'ok');
+  }catch(e){
+    setStatus('не сохранилось, повторите', 'err');
+  }finally{
+    SAVING=false;
+    if(SAVE_QUEUED){ SAVE_QUEUED=false; saveNow(); }
+  }
+}
+function showConflict(){
+  const box = document.getElementById('conflictBox'); if(!box) return;
+  box.style.display='block';
+}
+async function loadData(){
+  const j = await apiCall({action:'get'});
+  if(j.error==='unauthorized') throw new Error('unauthorized');
+  if(j.error) throw new Error(j.error);
+  SERVER_VERSION = (j.data.meta && j.data.meta.version) || 0;
+  applyData(j.data);
+}
+async function apiCall(payload){
+  // Apps Script: POST с text/plain — без CORS-preflight; пароль только в теле запроса
+  const r = await fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(Object.assign({pw:PASSWORD}, payload)), redirect:'follow'});
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.json();
+}
+function askPassword(msg){
+  const ov = document.getElementById('pwOverlay'); ov.style.display='flex';
+  document.getElementById('pwMsg').textContent = msg || '';
+  document.getElementById('pwInput').focus();
+}
+async function boot(){
+  document.getElementById('pwForm').onsubmit = async (e)=>{
+    e.preventDefault();
+    PASSWORD = document.getElementById('pwInput').value;
+    document.getElementById('pwMsg').textContent = 'проверяю…';
+    try{ await loadData(); sessionStorage.setItem('sc_pw', PASSWORD); document.getElementById('pwOverlay').style.display='none'; start(); }
+    catch(err){ document.getElementById('pwMsg').textContent = err.message==='unauthorized' ? 'Неверный пароль' : 'Сервис недоступен: '+err.message; }
+  };
+  document.getElementById('saveBtn').onclick = ()=> saveNow(true);
+  document.getElementById('conflictReload').onclick = async ()=>{ document.getElementById('conflictBox').style.display='none'; await loadData(); buildNav(); showGrading(); setStatus('данные обновлены с сервера', 'ok'); };
+  document.getElementById('conflictForce').onclick = async ()=>{ document.getElementById('conflictBox').style.display='none'; saveNow(true); };
+  // любое изменение в рабочей области — пометить и запланировать сохранение
+  roleContent.addEventListener('input', markDirty);
+  roleContent.addEventListener('change', markDirty);
+  roleContent.addEventListener('click', (e)=>{ if(e.target && (e.target.id==='sumResetPct' || e.target.id==='lgReset' || e.target.id==='offApply')) setTimeout(markDirty, 0); });
+  if(PASSWORD){
+    try{ await loadData(); start(); return; }catch(err){ sessionStorage.removeItem('sc_pw'); PASSWORD=''; }
+  }
+  askPassword();
+}
+function start(){
+  buildNav();
+  showGrading();
+  setStatus('загружено', 'ok');
+}
+boot();
+
+</script>
+</body>
+</html>
