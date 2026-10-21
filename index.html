@@ -79,6 +79,7 @@ h3.block-h:first-child{margin-top:0;}
 table.data{width:100%;border-collapse:collapse;margin:0 0 28px;font-size:13px;}
 table.data th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--sc-gray-text);border-bottom:1px solid var(--sc-ink);padding:8px 10px;}
 table.data td{padding:9px 10px;border-bottom:1px solid var(--sc-line);}
+table.data tbody th{border-top:1px solid var(--sc-ink);padding-top:14px;}
 table.data tr:last-child td{font-weight:700;border-bottom:none;border-top:1px solid var(--sc-ink);}
 table.data td.num{text-align:right;font-variant-numeric:tabular-nums;}
 .pos{color:var(--pos);}
@@ -328,6 +329,7 @@ function renderGrading(){
     const anchorLine = `<div style="margin-top:6px;font-size:11px;color:var(--sc-gray-text);">1 — ${f.anchors[1]}<br>2 — ${f.anchors[2]}<br>3 — ${f.anchors[3]}</div>`;
     return `<tr><td style="max-width:320px;"><b>${f.label}</b><br><span style="color:var(--sc-gray-text);font-size:12px;">${f.desc}</span>${anchorLine}</td><td class="num" style="text-align:center;"><input type="number" min="0" max="100" step="5" class="weight-input" data-factor="${f.key}" value="${f.weight}" style="width:56px;text-align:center;font-family:var(--sc-font);font-size:14px;padding:4px;border:1px solid var(--sc-line);border-radius:var(--sc-radius-sm);">%</td>${cells}</tr>`;
   }).join('');
+  const repeatHead = `<tr><th>Должность</th><th></th>${head}</tr>`;
   const totalRow = `<tr id="grade-total-row"><td><b>Взвешенный балл (1–3)</b></td><td></td>${people.map(r=>`<td id="total-${r.id}" style="text-align:center;font-weight:700;"></td>`).join('')}</tr>`;
   const bandRow = `<tr id="grade-band-row"><td><b>Грейд</b></td><td></td>${people.map(r=>`<td id="band-${r.id}" style="text-align:center;font-weight:700;font-size:12px;"></td>`).join('')}</tr>`;
   const shareRow = `<tr id="grade-share-row"><td><b>Доля в общем фонде премии топов</b></td><td></td>${people.map(r=>`<td id="share-${r.id}" style="text-align:center;font-weight:700;"></td>`).join('')}</tr>`;
@@ -346,7 +348,7 @@ function renderGrading(){
     </div>
     <table class="data" id="gradeTable">
       <thead><tr><th>Фактор</th><th style="text-align:center">Вес</th>${head}</tr></thead>
-      <tbody>${rows}${totalRow}${bandRow}${shareRow}${pctRow}</tbody>
+      <tbody>${rows}${repeatHead}${totalRow}${bandRow}${shareRow}${pctRow}</tbody>
     </table>
     <div class="callout">
       <h4>Как читать</h4>
@@ -1103,7 +1105,7 @@ function renderOffer(){
     <p class="calc-note" style="margin:0 0 12px;">Те же пять факторов и те же веса, что в основном грейдинге. Для долголетия у Миши влияние на финрезультат уже прямое (3) и масштаб ответственности шире (2) — остальные оценки без изменений. Слева в серых цифрах — оценка по стоматологии, в поле — по долголетию. Доли в фонде 8% пересчитываются, поэтому у остальных % с прибыли направления чуть ниже, чем по стоматологии.</p>
     <table class="data">
       <thead><tr><th>Фактор</th>${ROLES.map(r=>`<th style="text-align:center">${r.short}</th>`).join('')}</tr></thead>
-      <tbody>${rows}<tr id="lgTotRow"></tr><tr id="lgStomRow"></tr><tr id="lgPctRow"></tr></tbody>
+      <tbody>${rows}<tr><th>Должность</th>${ROLES.map(r=>`<th style="text-align:center">${r.short}</th>`).join('')}</tr><tr id="lgTotRow"></tr><tr id="lgStomRow"></tr><tr id="lgPctRow"></tr></tbody>
     </table>
     <button id="offApply" style="font-family:var(--sc-font);border:1px solid var(--sc-ink);background:transparent;padding:8px 16px;border-radius:var(--sc-radius-pill);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;">Перенести % на вкладку «Долголетие»</button> <span id="offApplyNote" class="calc-note" style="margin-left:10px;"></span>
 
