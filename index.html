@@ -859,9 +859,16 @@ function renderReverseOut(){
   const payAt = P => ROLES.map((r,i)=> Math.max(okl[i] + P*pct[i], okl[i]*1.5));
   const N = pLen();
   const P9 = pSum(PROFIT_DATA.net)/N, R9 = pSum(REV_DATA)/N, D9 = pSum(PROFIT_DATA.distributed)/N;
-  const wasFot = sumArr(ROLES.map(r=>pSum(WAS_PAY[r.id])))/N;
+  const wasByRole = {}; ROLES.forEach(r=>{ wasByRole[r.id] = pSum(WAS_PAY[r.id])/N; });
+  const wasFot = sumArr(Object.values(wasByRole));
   const newFot = sumArr(ROLES.map(r=>pSum(newPaySeries(r,'net'))))/N;
   const D9new = D9 + (wasFot - newFot);
+  // Старая формула: у ФД/МКТ/УПР оклад был фиксированным, без привязки к выручке/прибыли —
+  // их исторический средний не масштабируем. У РОП (Лена) было % от валовой выручки ступенчато
+  // по плану — единственная роль, где старая оплата реально росла вместе с бизнесом.
+  const wasFixedFot = sumArr(ROLES.filter(r=>r.id!=='rop').map(r=>wasByRole[r.id]));
+  const wasRopBase = wasByRole['rop'] || 0;
+  const oldFotAt = R => wasFixedFot + wasRopBase * (R/R9);
   const profitFor = target => (4*target - sOkl)/sPct;
   const grossB = grossForNet(RV.targetNet);
   const targets = [
@@ -921,7 +928,7 @@ function renderReverseOut(){
   let srows='';
   levels.forEach(P=>{
     const pays = payAt(P), fot = sumArr(pays), R = revenueForProfit(P), own = P - RV.amort;
-    const oldFot = wasFot * (R/R9), ownersGain = oldFot - fot;
+    const oldFot = oldFotAt(R), ownersGain = oldFot - fot;
     const isA = Math.abs(P-profitFor(RV.target))<1, isB = Math.abs(P-profitFor(grossB))<1, isCur = Math.abs(P-P9)<1;
     srows += `<tr${(isA||isB)?' style="background:var(--sc-bg-soft);font-weight:700;"':''}>
       <td>${isCur?'Факт '+pLabel():(isA?'Цель А':(isB?'Цель Б':''))}</td>
@@ -942,7 +949,7 @@ function renderReverseOut(){
     <div class="callout">
       <h4>Как читать</h4>
       <p>Из каждого дополнительного рубля прибыли топ-команда получает ${(sPct*100).toFixed(1)} копеек, ${(100-sPct*100).toFixed(1)} копеек остаются в компании. Доля ФОТ топ-4 в прибыли с ростом падает, потому что оклады фиксированы, а доля владельцев к распределению в выручке растёт.</p>
-      <p class="assumption">«ФОТ топ-4 (старая, оценка)» — старый ФОТ (факт ${pLabel()}, ${fmt(wasFot)} ₽) масштабирован пропорционально выручке сценария. Это упрощение: старые формулы были разными по ролям (у ФД — фикс без %, у остальных — разные базы), единой формулы, привязанной к прибыли, не было. «Экономия → владельцам» — на сколько новая модель дешевле старой при этом сценарии, то есть сколько дополнительно остаётся владельцам.</p>
+      <p class="assumption">«ФОТ топ-4 (старая, оценка)» — по старым формулам: у ФД, МКТ и УПР оклад был фиксированным, не привязанным к выручке или прибыли, поэтому берём их исторический средний как константу (${fmt(wasFixedFot)} ₽ на троих). У РОП (Лена) было % от валовой выручки ступенчато по плану — единственная роль, где старая оплата росла вместе с бизнесом, поэтому её исторический средний (${fmt(wasRopBase)} ₽) масштабируем пропорционально выручке сценария. «Экономия → владельцам» — на сколько новая модель дешевле старой при этом сценарии, то есть сколько дополнительно остаётся владельцам.</p>
       <p class="assumption">Владельцам — «к распределению» = чистая прибыль − амортизация − инвестиции (средние по факту). Выручка считается при текущей структуре затрат; долголетие — отдельная вкладка.</p>
     </div>`;
   document.getElementById('rvOut').innerHTML = wasNow + tgtHtml + formula + scen;
