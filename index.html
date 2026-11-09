@@ -882,7 +882,19 @@ function renderReverseOut(){
         <tr><td>ФОТ топ-4, % от выручки</td><td class="num">${(wasFot/R9*100).toFixed(2)}%</td><td class="num">${(newFot/R9*100).toFixed(2)}%</td><td class="num">${((newFot-wasFot)/R9*100).toFixed(2)} п.п.</td></tr>
       </tbody>
     </table>
-    <p class="calc-note">Чистая прибыль в БДР уже посчитана после всех зарплат, включая топов. «Стало» = факт + (старые выплаты − новые). К распределению = чистая прибыль − амортизация − инвестиции, как в БДР.</p>`;
+    <p class="calc-note">Чистая прибыль в БДР уже посчитана после всех зарплат, включая топов. «Стало» = факт + (старые выплаты − новые). К распределению = чистая прибыль − амортизация − инвестиции, как в БДР.</p>
+    <h3 class="block-h">То же самое по каждому топу</h3>
+    <table class="data">
+      <thead><tr><th>Роль</th><th style="text-align:right">Было (старая система, факт)</th><th style="text-align:right">Стало (новая модель)</th><th style="text-align:right">Разница</th></tr></thead>
+      <tbody>
+        ${ROLES.map(r=>{
+          const wasR = pSum(WAS_PAY[r.id])/N, newR = pSum(newPaySeries(r,'net'))/N, diffR = newR - wasR;
+          return `<tr><td>${r.short} — ${r.title}</td><td class="num">${fmt(wasR)} ₽</td><td class="num">${fmt(newR)} ₽</td><td class="num ${diffR>=0?'pos':'neg'}">${diffR>=0?'+':''}${fmt(diffR)} ₽</td></tr>`;
+        }).join('')}
+        <tr><td><b>ФОТ топ-4, итого</b></td><td class="num"><b>${fmt(wasFot)} ₽</b></td><td class="num"><b>${fmt(newFot)} ₽</b></td><td class="num ${newFot-wasFot>=0?'pos':'neg'}"><b>${newFot-wasFot>=0?'+':''}${fmt(newFot-wasFot)} ₽</b></td></tr>
+      </tbody>
+    </table>
+    <p class="calc-note">Было — факт выплат по прежней формуле каждой роли в среднем за ${pLabel()}. Стало — то же самое по новой модели (оклад + % от чистой прибыли × грейд) при фактической прибыли.</p>`;
 
   let tgtHtml='';
   targets.forEach(t=>{
@@ -909,12 +921,14 @@ function renderReverseOut(){
   let srows='';
   levels.forEach(P=>{
     const pays = payAt(P), fot = sumArr(pays), R = revenueForProfit(P), own = P - RV.amort;
+    const oldFot = wasFot * (R/R9), ownersGain = oldFot - fot;
     const isA = Math.abs(P-profitFor(RV.target))<1, isB = Math.abs(P-profitFor(grossB))<1, isCur = Math.abs(P-P9)<1;
     srows += `<tr${(isA||isB)?' style="background:var(--sc-bg-soft);font-weight:700;"':''}>
       <td>${isCur?'Факт '+pLabel():(isA?'Цель А':(isB?'Цель Б':''))}</td>
       <td class="num">${fmt(R)} ₽</td><td class="num">${fmt(P)} ₽</td><td class="num">${(P/R*100).toFixed(1)}%</td>
       <td class="num">${fmt(fot/4)} ₽</td><td class="num">${fmt((fot/4*12-ndflTax(fot/4*12))/12)} ₽</td><td class="num">${fmt(fot)} ₽</td>
       <td class="num">${(fot/P*100).toFixed(1)}%</td><td class="num">${(fot/R*100).toFixed(2)}%</td>
+      <td class="num">${fmt(oldFot)} ₽</td><td class="num ${ownersGain>=0?'pos':'neg'}">${ownersGain>=0?'+':''}${fmt(ownersGain)} ₽</td>
       <td class="num">${fmt(own)} ₽</td><td class="num">${(own/R*100).toFixed(1)}%</td>
       <td class="num">${isCur?'—':((fot-basePay)/(P-base)*100).toFixed(1)+'%'}</td>
     </tr>`;
@@ -922,12 +936,13 @@ function renderReverseOut(){
   const scen = `
     <h3 class="block-h">Сценарии: что получают топы и владельцы при разной прибыли</h3>
     <table class="data" style="font-size:12px;">
-      <thead><tr><th></th><th style="text-align:right">Выручка/мес</th><th style="text-align:right">Чистая прибыль</th><th style="text-align:right">Рентаб.</th><th style="text-align:right">Средний топ до НДФЛ</th><th style="text-align:right">Чистыми</th><th style="text-align:right">ФОТ топ-4</th><th style="text-align:right">ФОТ от прибыли</th><th style="text-align:right">ФОТ от выручки</th><th style="text-align:right">Владельцам к распред.</th><th style="text-align:right">% от выручки</th><th style="text-align:right">Топам из ₽ прироста</th></tr></thead>
+      <thead><tr><th></th><th style="text-align:right">Выручка/мес</th><th style="text-align:right">Чистая прибыль</th><th style="text-align:right">Рентаб.</th><th style="text-align:right">Средний топ до НДФЛ</th><th style="text-align:right">Чистыми</th><th style="text-align:right">ФОТ топ-4 (новая)</th><th style="text-align:right">ФОТ от прибыли</th><th style="text-align:right">ФОТ от выручки</th><th style="text-align:right">ФОТ топ-4 (старая, оценка)</th><th style="text-align:right">Экономия → владельцам</th><th style="text-align:right">Владельцам к распред.</th><th style="text-align:right">% от выручки</th><th style="text-align:right">Топам из ₽ прироста</th></tr></thead>
       <tbody>${srows}</tbody>
     </table>
     <div class="callout">
       <h4>Как читать</h4>
       <p>Из каждого дополнительного рубля прибыли топ-команда получает ${(sPct*100).toFixed(1)} копеек, ${(100-sPct*100).toFixed(1)} копеек остаются в компании. Доля ФОТ топ-4 в прибыли с ростом падает, потому что оклады фиксированы, а доля владельцев к распределению в выручке растёт.</p>
+      <p class="assumption">«ФОТ топ-4 (старая, оценка)» — старый ФОТ (факт ${pLabel()}, ${fmt(wasFot)} ₽) масштабирован пропорционально выручке сценария. Это упрощение: старые формулы были разными по ролям (у ФД — фикс без %, у остальных — разные базы), единой формулы, привязанной к прибыли, не было. «Экономия → владельцам» — на сколько новая модель дешевле старой при этом сценарии, то есть сколько дополнительно остаётся владельцам.</p>
       <p class="assumption">Владельцам — «к распределению» = чистая прибыль − амортизация − инвестиции (средние по факту). Выручка считается при текущей структуре затрат; долголетие — отдельная вкладка.</p>
     </div>`;
   document.getElementById('rvOut').innerHTML = wasNow + tgtHtml + formula + scen;
